@@ -28,6 +28,7 @@ import org.apache.hop.core.row.value.ValueMetaNumber;
 import org.apache.hop.core.row.value.ValueMetaPluginType;
 import org.apache.hop.core.row.value.ValueMetaString;
 import org.apache.hop.junit.rules.RestoreHopEnvironment;
+import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Test;
 
@@ -46,7 +47,12 @@ import static org.junit.Assert.fail;
  */
 @SuppressWarnings( "deprecation" )
 public class ValueMetaTest {
-  @ClassRule public static RestoreHopEnvironment env = new RestoreHopEnvironment();
+  private RestoreHopEnvironment env;
+
+  @Before
+  public void before() throws Exception {
+    env = new RestoreHopEnvironment();
+  }
 
   /**
    * Compare to byte arrays for equality.

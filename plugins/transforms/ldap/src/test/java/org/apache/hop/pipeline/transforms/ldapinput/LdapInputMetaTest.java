@@ -40,7 +40,7 @@ import org.junit.Test;
 public class LdapInputMetaTest implements IInitializer<LdapInputMeta> {
   LoadSaveTester<LdapInputMeta> loadSaveTester;
   Class<LdapInputMeta> testMetaClass = LdapInputMeta.class;
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Before
   public void setUpLoadSave() throws Exception {

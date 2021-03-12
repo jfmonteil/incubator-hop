@@ -44,8 +44,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
 
 public class VerticaDatabaseMetaTest {
-  @ClassRule
-  public static RestoreHopEnvironment env = new RestoreHopEnvironment();
+
 
   private VerticaDatabaseMeta nativeMeta;
 

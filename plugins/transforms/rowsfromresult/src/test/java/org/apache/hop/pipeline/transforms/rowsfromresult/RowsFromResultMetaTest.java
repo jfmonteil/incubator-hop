@@ -41,7 +41,7 @@ import java.util.Map;
 public class RowsFromResultMetaTest implements IInitializer<ITransformMeta> {
   LoadSaveTester loadSaveTester;
   Class<RowsFromResultMeta> testMetaClass = RowsFromResultMeta.class;
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Before
   public void setUpLoadSave() throws Exception {

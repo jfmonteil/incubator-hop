@@ -31,7 +31,7 @@ import java.util.Map;
 import java.util.Random;
 
 public class WorkflowActionWriteToLogLoadSaveTest extends WorkflowActionLoadSaveTestSupport<ActionWriteToLog> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   @Override
   protected Class<ActionWriteToLog> getActionClass() {

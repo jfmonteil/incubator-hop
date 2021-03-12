@@ -31,7 +31,7 @@ public class ClosureGeneratorMetaTest {
   LoadSaveTester<ClosureGeneratorMeta> loadSaveTester;
   Class<ClosureGeneratorMeta> testMetaClass = ClosureGeneratorMeta.class;
 
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Before
   public void setUpLoadSave() throws Exception {

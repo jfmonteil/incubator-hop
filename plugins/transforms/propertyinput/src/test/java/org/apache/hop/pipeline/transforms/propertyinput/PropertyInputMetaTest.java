@@ -52,7 +52,7 @@ import java.util.UUID;
 public class PropertyInputMetaTest implements IInitializer<ITransformMeta> {
   Class<PropertyInputMeta> testMetaClass = PropertyInputMeta.class;
   LoadSaveTester loadSaveTester;
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Before
   public void setUp() throws Exception {

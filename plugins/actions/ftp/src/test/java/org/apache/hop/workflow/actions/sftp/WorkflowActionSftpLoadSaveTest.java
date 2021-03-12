@@ -19,13 +19,19 @@ package org.apache.hop.workflow.actions.sftp;
 
 import org.apache.hop.workflow.action.loadsave.WorkflowActionLoadSaveTestSupport;
 import org.apache.hop.junit.rules.RestoreHopEngineEnvironment;
+import org.junit.Before;
 import org.junit.ClassRule;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class WorkflowActionSftpLoadSaveTest extends WorkflowActionLoadSaveTestSupport<ActionSftp> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  private RestoreHopEngineEnvironment env;
+
+  @Before
+  public void setUp() throws Exception {
+    env = new RestoreHopEngineEnvironment();
+  }
 
   @Override
   protected Class<ActionSftp> getActionClass() {
@@ -34,10 +40,10 @@ public class WorkflowActionSftpLoadSaveTest extends WorkflowActionLoadSaveTestSu
 
   @Override
   protected List<String> listCommonAttributes() {
-    return Arrays.asList( new String[] { "serverName", "serverPort", "userName", "password", "scpDirectory",
+    return Arrays.asList( "serverName", "serverPort", "userName", "password", "scpDirectory",
       "targetDirectory", "wildcard", "remove", "addToResult", "createTargetFolder", "copyPrevious",
       "useKeyFile", "keyFilename", "keyPassPhrase", "compression", "proxyType", "proxyHost", "proxyPort",
-      "proxyUsername", "proxyPassword" } );
+      "proxyUsername", "proxyPassword" );
   }
 
 }

@@ -52,33 +52,28 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public class NettezaValueMetaBaseTest {
-  @ClassRule public static RestoreHopEnvironment env = new RestoreHopEnvironment();
+  private RestoreHopEnvironment env;
 
   private static final String TEST_NAME = "TEST_NAME";
+
   private static final String LOG_FIELD = "LOG_FIELD";
   public static final int MAX_TEXT_FIELD_LEN = 5;
-
   // Get PKG from class under test
+
   private Class<?> PKG = ValueMetaBase.PKG;
   private StoreLoggingEventListener listener;
-
   @Spy
   private DatabaseMeta databaseMetaSpy = spy( new DatabaseMeta() );
+
   private PreparedStatement preparedStatementMock = mock( PreparedStatement.class );
   private ResultSet resultSet;
   private DatabaseMeta dbMeta;
   private ValueMetaBase valueMetaBase;
 
-  @BeforeClass
-  public static void setUpBeforeClass() throws HopException {
-    PluginRegistry.addPluginType( ValueMetaPluginType.getInstance() );
-    PluginRegistry.addPluginType( DatabasePluginType.getInstance() );
-    PluginRegistry.init();
-    HopLogStore.init();
-  }
-
   @Before
-  public void setUp() {
+  public void before() throws Exception {
+    env = new RestoreHopEnvironment();
+
     listener = new StoreLoggingEventListener();
     HopLogStore.getAppender().addLoggingEventListener( listener );
 

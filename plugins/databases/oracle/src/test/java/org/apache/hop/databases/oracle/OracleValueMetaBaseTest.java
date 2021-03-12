@@ -46,9 +46,7 @@ import static org.mockito.Mockito.when;
 
 public class OracleValueMetaBaseTest {
 
-	@ClassRule
-	public static RestoreHopEnvironment env = new RestoreHopEnvironment();
-	
+
 	private DatabaseMeta databaseMeta;
 	private IValueMeta valueMetaBase;
 	private ResultSet resultSet;

@@ -44,7 +44,7 @@ public class PDI_2875_Test {
   private static TransformMockHelper<TextFileInputMeta, TextFileInputData> smh;
   private final String VAR_NAME = "VAR";
   private final String EXPRESSION = "${" + VAR_NAME + "}";
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @BeforeClass
   public static void setUp() throws Exception {

@@ -29,12 +29,13 @@ import java.util.List;
 import static org.junit.Assert.assertTrue;
 
 public class H2BaseDatabaseMetaTest {
-  @ClassRule public static RestoreHopEnvironment env = new RestoreHopEnvironment();
+  private RestoreHopEnvironment env;
+
   BaseDatabaseMeta nativeMeta;
 
   @Before
-  public void setupOnce() throws Exception {
-    HopClientEnvironment.init();
+  public void before() throws Exception {
+    env = new RestoreHopEnvironment();
   }
 
   @Test

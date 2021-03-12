@@ -25,7 +25,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class WorkflowActionMssqlBulkLoadLoadSaveTest extends WorkflowActionLoadSaveTestSupport<ActionMssqlBulkLoad> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Override
   protected Class<ActionMssqlBulkLoad> getActionClass() {

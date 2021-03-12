@@ -36,7 +36,7 @@ import java.util.*;
 public class SynchronizeAfterMergeMetaTest implements IInitializer<ITransform> {
   LoadSaveTester loadSaveTester;
   Class<SynchronizeAfterMergeMeta> testMetaClass = SynchronizeAfterMergeMeta.class;
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   @Before
   public void setUpLoadSave() throws Exception {

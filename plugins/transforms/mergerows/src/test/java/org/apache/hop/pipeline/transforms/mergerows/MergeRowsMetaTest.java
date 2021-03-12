@@ -41,7 +41,7 @@ import java.util.Map;
 public class MergeRowsMetaTest implements IInitializer<ITransformMeta> {
   LoadSaveTester loadSaveTester;
   Class<MergeRowsMeta> testMetaClass = MergeRowsMeta.class;
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Before
   public void setUpLoadSave() throws Exception {

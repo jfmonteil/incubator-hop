@@ -57,7 +57,7 @@ import static org.mockito.Mockito.when;
  * @see FieldSplitter
  */
 public class FieldSplitterTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
   TransformMockHelper<FieldSplitterMeta, FieldSplitterData> transformMockHelper;
 
   @BeforeClass

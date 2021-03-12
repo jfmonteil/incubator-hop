@@ -21,6 +21,7 @@ import org.apache.hop.workflow.action.loadsave.WorkflowActionLoadSaveTestSupport
 import org.apache.hop.junit.rules.RestoreHopEngineEnvironment;
 import org.apache.hop.pipeline.transforms.loadsave.validator.IFieldLoadSaveValidator;
 import org.apache.hop.pipeline.transforms.loadsave.validator.IntLoadSaveValidator;
+import org.junit.Before;
 import org.junit.ClassRule;
 
 import java.util.Arrays;
@@ -29,7 +30,12 @@ import java.util.List;
 import java.util.Map;
 
 public class WorkflowActionEvalTableContentLoadSaveTest extends WorkflowActionLoadSaveTestSupport<ActionEvalTableContent> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  private RestoreHopEngineEnvironment env;
+
+  @Before
+  public void setUp() throws Exception {
+    env = new RestoreHopEngineEnvironment();
+  }
 
   @Override
   protected Class<ActionEvalTableContent> getActionClass() {

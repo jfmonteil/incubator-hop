@@ -59,7 +59,7 @@ import java.util.Map;
 
 public class InsertUpdateMetaTest {
   LoadSaveTester loadSaveTester;
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   private IVariables variables;
   private TransformMeta transformMeta;

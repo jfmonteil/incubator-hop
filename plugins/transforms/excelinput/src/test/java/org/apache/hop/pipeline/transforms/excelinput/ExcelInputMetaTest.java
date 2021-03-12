@@ -44,7 +44,7 @@ import java.util.UUID;
 public class ExcelInputMetaTest {
   LoadSaveTester loadSaveTester;
   ExcelInputMeta meta;
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Before
   public void setUp() throws Exception {

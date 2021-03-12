@@ -34,7 +34,7 @@ import java.util.Map;
 public class SQLFileOutputMetaTest {
   LoadSaveTester loadSaveTester;
   Class<SQLFileOutputMeta> testMetaClass = SQLFileOutputMeta.class;
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Before
   public void setUpLoadSave() throws Exception {

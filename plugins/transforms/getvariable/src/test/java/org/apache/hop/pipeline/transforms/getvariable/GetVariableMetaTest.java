@@ -50,7 +50,7 @@ import static org.junit.Assert.assertTrue;
 public class GetVariableMetaTest implements IInitializer<GetVariableMeta> {
   LoadSaveTester<GetVariableMeta> loadSaveTester;
   Class<GetVariableMeta> testMetaClass = GetVariableMeta.class;
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @BeforeClass
   public static void setUpBeforeClass() throws HopException {

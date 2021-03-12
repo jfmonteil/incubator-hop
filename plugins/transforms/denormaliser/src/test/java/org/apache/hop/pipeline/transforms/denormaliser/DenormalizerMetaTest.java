@@ -42,7 +42,7 @@ import java.util.UUID;
 public class DenormalizerMetaTest implements IInitializer<ITransformMeta> {
   LoadSaveTester loadSaveTester;
   Class<DenormaliserMeta> testMetaClass = DenormaliserMeta.class;
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   @Before
   public void setUpLoadSave() throws Exception {

@@ -20,6 +20,7 @@ import org.apache.hop.core.Result;
 import org.apache.hop.core.logging.HopLogStore;
 import org.apache.hop.junit.rules.RestoreHopEngineEnvironment;
 import org.apache.hop.workflow.action.loadsave.WorkflowActionLoadSaveTestSupport;
+import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Test;
 
@@ -31,7 +32,12 @@ import static org.junit.Assert.assertNotNull;
 
 
 public class ActionMailValidatorTest extends WorkflowActionLoadSaveTestSupport<ActionMailValidator> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  private RestoreHopEngineEnvironment env;
+
+  @Before
+  public void setUp() throws Exception {
+    env = new RestoreHopEngineEnvironment();
+  }
 
   @Override
   protected Class<ActionMailValidator> getActionClass() {

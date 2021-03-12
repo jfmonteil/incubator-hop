@@ -65,7 +65,7 @@ import static org.mockito.Mockito.when;
 public class AbstractMetaTest {
   AbstractMeta meta;
 
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   @BeforeClass
   public static void setUpBeforeClass() throws Exception {

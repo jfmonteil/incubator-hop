@@ -20,6 +20,7 @@ import org.apache.hop.core.HopClientEnvironment;
 import org.apache.hop.core.exception.HopException;
 import org.apache.hop.core.variables.Variables;
 import org.apache.hop.junit.rules.RestoreHopEnvironment;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.ClassRule;
 import org.junit.Test;
@@ -35,11 +36,11 @@ import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 
 public class UtilsTest {
-  @ClassRule public static RestoreHopEnvironment env = new RestoreHopEnvironment();
+  private RestoreHopEnvironment env;
 
-  @BeforeClass
-  public static void setUpBeforeClass() throws HopException {
-    HopClientEnvironment.init();
+  @Before
+  public void before() throws Exception {
+    env = new RestoreHopEnvironment();
   }
 
   @Test

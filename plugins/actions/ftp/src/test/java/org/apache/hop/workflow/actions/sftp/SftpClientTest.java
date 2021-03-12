@@ -39,8 +39,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public class SftpClientTest {
-  @ClassRule
-  public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   private int port = 22;
   private String username = "admin";

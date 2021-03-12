@@ -26,8 +26,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class ClickhouseDatabaseMetaTest {
-	@ClassRule
-	public static RestoreHopEnvironment env = new RestoreHopEnvironment();
 
 	ClickhouseDatabaseMeta nativeMeta;
 

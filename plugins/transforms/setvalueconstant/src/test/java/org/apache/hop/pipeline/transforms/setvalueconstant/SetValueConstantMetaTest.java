@@ -38,7 +38,7 @@ import java.util.Random;
 import java.util.UUID;
 
 public class SetValueConstantMetaTest implements IInitializer<ITransformMeta> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
   LoadSaveTester loadSaveTester;
   Class<SetValueConstantMeta> testMetaClass = SetValueConstantMeta.class;
 

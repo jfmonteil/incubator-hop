@@ -43,7 +43,7 @@ import java.util.Random;
 import java.util.UUID;
 
 public class ScriptValuesMetaModTest implements IInitializer<ITransformMeta> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   LoadSaveTester loadSaveTester;
   Class<ScriptValuesMetaMod> testMetaClass = ScriptValuesMetaMod.class;

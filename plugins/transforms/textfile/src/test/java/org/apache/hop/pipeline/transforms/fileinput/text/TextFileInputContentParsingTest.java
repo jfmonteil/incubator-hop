@@ -25,7 +25,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 public class TextFileInputContentParsingTest extends BaseTextParsingTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   @Test
   public void testDefaultOptions() throws Exception {

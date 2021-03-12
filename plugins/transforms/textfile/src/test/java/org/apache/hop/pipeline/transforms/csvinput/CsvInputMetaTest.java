@@ -43,7 +43,7 @@ import java.util.UUID;
 public class CsvInputMetaTest implements IInitializer<ITransformMeta> {
   TransformLoadSaveTester<CsvInputMeta> transformLoadSaveTester;
   Class<CsvInputMeta> testMetaClass = CsvInputMeta.class;
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   private static class TextFileInputFieldValidator implements IFieldLoadSaveValidator<TextFileInputField> {
     @Override public TextFileInputField getTestObject() {

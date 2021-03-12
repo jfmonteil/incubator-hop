@@ -71,8 +71,7 @@ import static org.mockito.Mockito.when;
 @SuppressWarnings( "deprecation" )
 public class DatabaseTest {
 
-  @ClassRule
-  public static RestoreHopEnvironment env = new RestoreHopEnvironment();
+  private RestoreHopEnvironment env;
 
   private static final String TEST_NAME_OF_DB_CONNECTION = "TEST_CONNECTION";
   private static final String SQL_MOCK_EXCEPTION_MESSAGE = "SQL mock exception";
@@ -99,13 +98,10 @@ public class DatabaseTest {
   private IVariables variables;
   //end common fields
 
-  @BeforeClass
-  public static void setUpClass() throws Exception {
-    HopClientEnvironment.init();
-  }
 
   @Before
   public void setUp() throws Exception {
+    env = new RestoreHopEnvironment();
     conn = mockConnection( mock( DatabaseMetaData.class ) );
     when( log.getLogLevel() ).thenReturn( LogLevel.NOTHING );
     variables = new Variables();

@@ -62,7 +62,7 @@ import static org.mockito.Mockito.when;
  */
 public class PDI5436Test {
   private TransformMockHelper<DatabaseLookupMeta, DatabaseLookupData> smh;
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @BeforeClass
   public static void setupClass() throws HopException {

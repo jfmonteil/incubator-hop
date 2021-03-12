@@ -34,7 +34,7 @@ import java.util.List;
 import java.util.Map;
 
 public class UniqueRowsMetaTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Test
   public void testRoundTrip() throws HopException {

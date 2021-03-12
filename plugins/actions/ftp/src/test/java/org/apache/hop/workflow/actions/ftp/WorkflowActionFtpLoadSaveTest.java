@@ -19,13 +19,19 @@ package org.apache.hop.workflow.actions.ftp;
 
 import org.apache.hop.workflow.action.loadsave.WorkflowActionLoadSaveTestSupport;
 import org.apache.hop.junit.rules.RestoreHopEngineEnvironment;
+import org.junit.Before;
 import org.junit.ClassRule;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class WorkflowActionFtpLoadSaveTest extends WorkflowActionLoadSaveTestSupport<ActionFtp> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  private RestoreHopEngineEnvironment env;
+
+  @Before
+  public void setUp() throws Exception {
+    env = new RestoreHopEngineEnvironment();
+  }
 
   @Override
   protected Class<ActionFtp> getActionClass() {
@@ -34,8 +40,7 @@ public class WorkflowActionFtpLoadSaveTest extends WorkflowActionLoadSaveTestSup
 
   @Override
   protected List<String> listCommonAttributes() {
-    return Arrays.asList( new String[] {
-      "serverPort",
+    return Arrays.asList( "serverPort",
       "serverName",
       "userName",
       "password",
@@ -67,7 +72,7 @@ public class WorkflowActionFtpLoadSaveTest extends WorkflowActionLoadSaveTestSup
       "socksProxyPassword",
       "stringIfFileExists",
       "nrLimit",
-      "successCondition" } );
+      "successCondition" );
   }
 
 }

@@ -33,7 +33,7 @@ import java.util.Map;
 import java.util.Random;
 
 public class FuzzyMatchMetaTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   LoadSaveTester loadSaveTester;
 

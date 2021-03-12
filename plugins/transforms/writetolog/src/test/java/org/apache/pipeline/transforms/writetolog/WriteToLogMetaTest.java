@@ -39,7 +39,7 @@ import java.util.Map;
 import java.util.Random;
 
 public class WriteToLogMetaTest implements IInitializer<WriteToLogMeta> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
   LoadSaveTester loadSaveTester;
   Class<WriteToLogMetaSymmetric> testMetaClass = WriteToLogMetaSymmetric.class;
 

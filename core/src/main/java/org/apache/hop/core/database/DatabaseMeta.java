@@ -72,12 +72,6 @@ public class DatabaseMeta extends HopMetadataBase implements Cloneable, IHopMeta
 
   public static final String GUI_PLUGIN_ELEMENT_PARENT_ID = "DatabaseMeta-PluginSpecific-Options";
 
-  // Comparator for sorting databases alphabetically by name
-  public static final Comparator<DatabaseMeta> comparator =
-      (DatabaseMeta dbm1, DatabaseMeta dbm2) -> {
-        return dbm1.getName().compareToIgnoreCase(dbm2.getName());
-      };
-
   @HopMetadataProperty(key = "rdbms")
   private IDatabase iDatabase;
 

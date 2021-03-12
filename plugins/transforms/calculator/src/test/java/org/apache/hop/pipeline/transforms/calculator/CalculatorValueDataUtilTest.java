@@ -44,7 +44,7 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 public class CalculatorValueDataUtilTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
   private static String yyyy_MM_dd = "yyyy-MM-dd";
 
   @BeforeClass

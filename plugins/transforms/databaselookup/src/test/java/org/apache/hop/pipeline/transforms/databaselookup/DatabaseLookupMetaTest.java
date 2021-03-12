@@ -55,7 +55,7 @@ import static org.junit.Assert.assertTrue;
 public class DatabaseLookupMetaTest implements IInitializer<ITransformMeta> {
   LoadSaveTester loadSaveTester;
   Class<DatabaseLookupMeta> testMetaClass = DatabaseLookupMeta.class;
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
   private IVariables variables;
 
   @Before

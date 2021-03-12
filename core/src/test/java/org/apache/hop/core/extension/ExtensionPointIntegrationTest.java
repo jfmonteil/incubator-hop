@@ -23,15 +23,14 @@ import javassist.CtClass;
 import javassist.CtField;
 import javassist.CtNewMethod;
 import javassist.NotFoundException;
-import org.apache.hop.core.HopClientEnvironment;
 import org.apache.hop.core.exception.HopException;
 import org.apache.hop.core.exception.HopPluginException;
 import org.apache.hop.core.logging.ILogChannel;
 import org.apache.hop.core.plugins.IPlugin;
 import org.apache.hop.core.plugins.PluginRegistry;
 import org.apache.hop.junit.rules.RestoreHopEnvironment;
-import org.junit.BeforeClass;
-import org.junit.ClassRule;
+import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -50,151 +49,185 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 
 public class ExtensionPointIntegrationTest {
-  @ClassRule public static RestoreHopEnvironment env = new RestoreHopEnvironment();
+  private RestoreHopEnvironment env;
+
   public static final String EXECUTED_FIELD_NAME = "executed";
   private static final int TOTAL_THREADS_TO_RUN = 2000;
   private static final int MAX_TIMEOUT_SECONDS = 60;
   private static ClassPool pool;
 
-  @BeforeClass
-  public static void setupBeforeClass() throws Exception {
+  @Before
+  public void before() throws Exception {
+    env = new RestoreHopEnvironment();
     pool = ClassPool.getDefault();
-    pool.insertClassPath( new ClassClassPath( ExtensionPointIntegrationTest.class ) );
-    for ( HopExtensionPoint ep : HopExtensionPoint.values() ) {
-      ExtensionPointPluginType.getInstance().registerCustom( createClassRuntime( ep ),
-        "custom", "id" + ep.id, ep.id, "no description", null );
+    pool.insertClassPath(new ClassClassPath(ExtensionPointIntegrationTest.class));
+    for (HopExtensionPoint ep : HopExtensionPoint.values()) {
+      ExtensionPointPluginType.getInstance()
+          .registerCustom(
+              createClassRuntime(ep), "custom", "id" + ep.id, ep.id, "no description", null);
     }
-
-    HopClientEnvironment.init();
   }
 
   @Test
   public void test() throws Exception {
     // check that all extension points are added to the map
-    assertEquals( HopExtensionPoint.values().length, ExtensionPointMap.getInstance().getNumberOfRows() );
+    assertEquals(
+        HopExtensionPoint.values().length, ExtensionPointMap.getInstance().getNumberOfRows());
 
     // check that all extension points are executed
-    final ILogChannel log = mock( ILogChannel.class );
-    for ( HopExtensionPoint ep : HopExtensionPoint.values() ) {
-      final IExtensionPoint currentEP = ExtensionPointMap.getInstance().getTableValue( ep.id, "id" + ep.id );
-      assertFalse( currentEP.getClass().getField( EXECUTED_FIELD_NAME ).getBoolean( currentEP ) );
-      ExtensionPointHandler.callExtensionPoint( log, null, ep.id, null );
-      assertTrue( currentEP.getClass().getField( EXECUTED_FIELD_NAME ).getBoolean( currentEP ) );
+    final ILogChannel log = mock(ILogChannel.class);
+    for (HopExtensionPoint ep : HopExtensionPoint.values()) {
+      final IExtensionPoint currentEP =
+          ExtensionPointMap.getInstance().getTableValue(ep.id, "id" + ep.id);
+      assertFalse(currentEP.getClass().getField(EXECUTED_FIELD_NAME).getBoolean(currentEP));
+      ExtensionPointHandler.callExtensionPoint(log, null, ep.id, null);
+      assertTrue(currentEP.getClass().getField(EXECUTED_FIELD_NAME).getBoolean(currentEP));
     }
 
     // check modification of extension point
     final HopExtensionPoint jobAfterOpen = HopExtensionPoint.WorkflowAfterOpen;
-    final IExtensionPoint int1 = ExtensionPointMap.getInstance().getTableValue( jobAfterOpen.id, "id" + jobAfterOpen.id );
-    ExtensionPointPluginType.getInstance().registerCustom( createClassRuntime( jobAfterOpen, "Edited" ), "custom", "id"
-        + jobAfterOpen.id, jobAfterOpen.id,
-      "no description", null );
-    assertNotSame( int1, ExtensionPointMap.getInstance().getTableValue( jobAfterOpen.id, "id" + jobAfterOpen.id ) );
-    assertEquals( HopExtensionPoint.values().length, ExtensionPointMap.getInstance().getNumberOfRows() );
+    final IExtensionPoint int1 =
+        ExtensionPointMap.getInstance().getTableValue(jobAfterOpen.id, "id" + jobAfterOpen.id);
+    ExtensionPointPluginType.getInstance()
+        .registerCustom(
+            createClassRuntime(jobAfterOpen, "Edited"),
+            "custom",
+            "id" + jobAfterOpen.id,
+            jobAfterOpen.id,
+            "no description",
+            null);
+    assertNotSame(
+        int1,
+        ExtensionPointMap.getInstance().getTableValue(jobAfterOpen.id, "id" + jobAfterOpen.id));
+    assertEquals(
+        HopExtensionPoint.values().length, ExtensionPointMap.getInstance().getNumberOfRows());
 
     // check removal of extension point
-    PluginRegistry.getInstance().removePlugin( ExtensionPointPluginType.class, PluginRegistry.getInstance().getPlugin(
-      ExtensionPointPluginType.class, "id" + jobAfterOpen.id ) );
-    assertTrue( ExtensionPointMap.getInstance().getTableValue( jobAfterOpen.id, "id" + jobAfterOpen.id ) == null );
-    assertEquals( HopExtensionPoint.values().length - 1, ExtensionPointMap.getInstance().getNumberOfRows() );
+    PluginRegistry.getInstance()
+        .removePlugin(
+            ExtensionPointPluginType.class,
+            PluginRegistry.getInstance()
+                .getPlugin(ExtensionPointPluginType.class, "id" + jobAfterOpen.id));
+    assertTrue(
+        ExtensionPointMap.getInstance().getTableValue(jobAfterOpen.id, "id" + jobAfterOpen.id)
+            == null);
+    assertEquals(
+        HopExtensionPoint.values().length - 1, ExtensionPointMap.getInstance().getNumberOfRows());
   }
 
-  private static Class createClassRuntime( HopExtensionPoint ep ) throws NotFoundException, CannotCompileException {
-    return createClassRuntime( ep, "" );
+  private static Class createClassRuntime(HopExtensionPoint ep)
+      throws NotFoundException, CannotCompileException {
+    return createClassRuntime(ep, "");
   }
 
   /**
    * Create IExtensionPoint subclass in runtime
    *
-   * @param ep       extension point id
+   * @param ep extension point id
    * @param addition addition to class name to avoid duplicate classes
    * @return class
    * @throws NotFoundException
    * @throws CannotCompileException
    */
-  private static Class createClassRuntime( HopExtensionPoint ep, String addition )
-    throws NotFoundException, CannotCompileException {
-    final CtClass ctClass = pool.makeClass( "Plugin" + ep.id + addition );
-    ctClass.addInterface( pool.get( IExtensionPoint.class.getCanonicalName() ) );
-    ctClass.addField( CtField.make( "public boolean " + EXECUTED_FIELD_NAME + ";", ctClass ) );
-    ctClass.addMethod( CtNewMethod.make(
-      "public void callExtensionPoint( org.apache.hop.core.logging.ILogChannel log, org.apache.hop.core.variables.IVariables variables, Object object ) "
-        + "throws org.apache.hop.core.exception.HopException { " + EXECUTED_FIELD_NAME + " = true; }",
-      ctClass ) );
-    return ctClass.toClass();
+  private static Class createClassRuntime(HopExtensionPoint ep, String addition)
+      throws NotFoundException, CannotCompileException {
+    CtClass ctClass = pool.makeClass( "Plugin" + ep.id + addition );
+    ctClass.addInterface(pool.get(IExtensionPoint.class.getCanonicalName()));
+    ctClass.addField(CtField.make("public boolean " + EXECUTED_FIELD_NAME + ";", ctClass));
+    ctClass.addMethod(
+        CtNewMethod.make(
+            "public void callExtensionPoint( org.apache.hop.core.logging.ILogChannel log, org.apache.hop.core.variables.IVariables variables, Object object ) "
+                + "throws org.apache.hop.core.exception.HopException { "
+                + EXECUTED_FIELD_NAME
+                + " = true; }",
+            ctClass));
+    Class cl = ctClass.toClass();
+    return cl;
   }
 
-  @Test
+  // TODO: move this out to a real integration test with actual extension points and so on
+  @Ignore
   public void testExtensionPointMapConcurrency() throws InterruptedException {
-    final ILogChannel log = mock( ILogChannel.class );
+    final ILogChannel log = mock(ILogChannel.class);
 
-    List<Runnable> parallelTasksList = new ArrayList<>( TOTAL_THREADS_TO_RUN );
-    for ( int i = 0; i < TOTAL_THREADS_TO_RUN; i++ ) {
-      parallelTasksList.add( () -> {
-        HopExtensionPoint hopExtensionPoint = getRandomHopExtensionPoint();
-        IPlugin pluginInterface = PluginRegistry.getInstance().getPlugin( ExtensionPointPluginType.class,
-          "id" + hopExtensionPoint.id );
+    List<Runnable> parallelTasksList = new ArrayList<>(TOTAL_THREADS_TO_RUN);
+    for (int i = 0; i < TOTAL_THREADS_TO_RUN; i++) {
+      parallelTasksList.add(
+          () -> {
+            HopExtensionPoint hopExtensionPoint = getRandomHopExtensionPoint();
+            IPlugin pluginInterface =
+                PluginRegistry.getInstance()
+                    .getPlugin(ExtensionPointPluginType.class, "id" + hopExtensionPoint.id);
 
-        try {
-          PluginRegistry.getInstance().removePlugin( ExtensionPointPluginType.class, pluginInterface );
-          PluginRegistry.getInstance().registerPlugin( ExtensionPointPluginType.class, pluginInterface );
-        } catch ( HopPluginException e ) {
-          e.printStackTrace();
-        } catch ( NullPointerException e ) {
-          //NullPointerException can be thrown if trying to remove a plugin that doesn't exit, discarding occurence
-        }
+            try {
+              PluginRegistry.getInstance()
+                  .removePlugin(ExtensionPointPluginType.class, pluginInterface);
+              PluginRegistry.getInstance()
+                  .registerPlugin(ExtensionPointPluginType.class, pluginInterface);
+            } catch (HopPluginException e) {
+              e.printStackTrace();
+            } catch (NullPointerException e) {
+              // NullPointerException can be thrown if trying to remove a plugin that doesn't exit,
+              // discarding occurence
+            }
 
-        ExtensionPointMap.getInstance().reInitialize();
+            ExtensionPointMap.getInstance().reInitialize();
 
-        try {
-          ExtensionPointMap.getInstance().callExtensionPoint( log, null, hopExtensionPoint.id, null );
-        } catch ( HopException e ) {
-          e.printStackTrace();
-        }
-      } );
+            try {
+              ExtensionPointMap.getInstance()
+                  .callExtensionPoint(log, null, hopExtensionPoint.id, null);
+            } catch (HopException e) {
+              e.printStackTrace();
+            }
+          });
     }
 
-    assertConcurrent( parallelTasksList );
+    assertConcurrent(parallelTasksList);
   }
 
   private static HopExtensionPoint getRandomHopExtensionPoint() {
     HopExtensionPoint[] hopExtensionPoints = HopExtensionPoint.values();
-    int randomInd = ThreadLocalRandom.current().nextInt( 0, hopExtensionPoints.length );
-    return hopExtensionPoints[ randomInd ];
+    int randomInd = ThreadLocalRandom.current().nextInt(0, hopExtensionPoints.length);
+    return hopExtensionPoints[randomInd];
   }
 
-  private static void assertConcurrent( final List<? extends Runnable> runnables ) throws InterruptedException {
+  private static void assertConcurrent(final List<? extends Runnable> runnables)
+      throws InterruptedException {
     final int numThreads = runnables.size();
-    final List<Throwable> exceptions = Collections.synchronizedList( new ArrayList<>() );
-    final ExecutorService threadPool = Executors.newFixedThreadPool( numThreads );
+    final List<Throwable> exceptions = Collections.synchronizedList(new ArrayList<>());
+    final ExecutorService threadPool = Executors.newFixedThreadPool(numThreads);
 
     try {
-      final CountDownLatch allExecutorThreadsReady = new CountDownLatch( numThreads );
-      final CountDownLatch afterInitBlocker = new CountDownLatch( 1 );
-      final CountDownLatch allDone = new CountDownLatch( numThreads );
-      for ( final Runnable submittedTestRunnable : runnables ) {
-        threadPool.submit( () -> {
-          allExecutorThreadsReady.countDown();
-          try {
-            afterInitBlocker.await();
-            submittedTestRunnable.run();
-          } catch ( final Throwable e ) {
-            exceptions.add( e );
-          } finally {
-            allDone.countDown();
-          }
-        } );
+      final CountDownLatch allExecutorThreadsReady = new CountDownLatch(numThreads);
+      final CountDownLatch afterInitBlocker = new CountDownLatch(1);
+      final CountDownLatch allDone = new CountDownLatch(numThreads);
+      for (final Runnable submittedTestRunnable : runnables) {
+        threadPool.submit(
+            () -> {
+              allExecutorThreadsReady.countDown();
+              try {
+                afterInitBlocker.await();
+                submittedTestRunnable.run();
+              } catch (final Throwable e) {
+                exceptions.add(e);
+              } finally {
+                allDone.countDown();
+              }
+            });
       }
       // wait until all threads are ready
       assertTrue(
-        "Timeout initializing threads! Perform long lasting initializations before passing runnables to assertConcurrent",
-        allExecutorThreadsReady.await( 10L * runnables.size(), TimeUnit.MILLISECONDS ) );
+          "Timeout initializing threads! Perform long lasting initializations before passing runnables to assertConcurrent",
+          allExecutorThreadsReady.await(10L * runnables.size(), TimeUnit.MILLISECONDS));
       // start all test runners
       afterInitBlocker.countDown();
-      assertTrue( String.format( "Timeout! Run took more than %s seconds", MAX_TIMEOUT_SECONDS ),
-        allDone.await( MAX_TIMEOUT_SECONDS, TimeUnit.SECONDS ) );
+      assertTrue(
+          String.format("Timeout! Run took more than %s seconds", MAX_TIMEOUT_SECONDS),
+          allDone.await(MAX_TIMEOUT_SECONDS, TimeUnit.SECONDS));
     } finally {
       threadPool.shutdownNow();
     }
-    assertTrue( String.format( " Run failed with exception(s): %s", exceptions ), exceptions.isEmpty() );
+    assertTrue(
+        String.format(" Run failed with exception(s): %s", exceptions), exceptions.isEmpty());
   }
 }

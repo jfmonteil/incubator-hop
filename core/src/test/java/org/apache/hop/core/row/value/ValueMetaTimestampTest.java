@@ -19,6 +19,7 @@ package org.apache.hop.core.row.value;
 import org.apache.hop.core.database.DatabaseMeta;
 import org.apache.hop.core.exception.HopDatabaseException;
 import org.apache.hop.junit.rules.RestoreHopEnvironment;
+import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Test;
 import org.mockito.invocation.InvocationOnMock;
@@ -41,7 +42,12 @@ import static org.mockito.Mockito.mock;
  * User: Dzmitry Stsiapanau Date: 3/20/2014 Time: 11:51 AM
  */
 public class ValueMetaTimestampTest {
-  @ClassRule public static RestoreHopEnvironment env = new RestoreHopEnvironment();
+  private RestoreHopEnvironment env;
+
+  @Before
+  public void before() throws Exception {
+    env = new RestoreHopEnvironment();
+  }
 
   @Test
   public void testSetPreparedStatementValue() throws Exception {

@@ -54,7 +54,7 @@ import static org.junit.Assert.fail;
 import static org.mockito.Mockito.mock;
 
 public class SalesforceConnectionTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   private ILogChannel logInterface = mock( ILogChannel.class );
   private String url = "url";

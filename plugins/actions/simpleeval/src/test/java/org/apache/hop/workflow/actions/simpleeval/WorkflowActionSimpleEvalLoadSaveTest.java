@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 
 public class WorkflowActionSimpleEvalLoadSaveTest extends WorkflowActionLoadSaveTestSupport<ActionSimpleEval> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
 
   @Override

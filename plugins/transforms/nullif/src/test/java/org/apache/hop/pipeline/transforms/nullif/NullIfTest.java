@@ -50,7 +50,7 @@ import static org.mockito.Mockito.*;
 
 public class NullIfTest {
   TransformMockHelper<NullIfMeta, NullIfData> smh;
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   @Before
   public void setUp() {

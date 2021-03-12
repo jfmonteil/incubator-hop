@@ -38,15 +38,15 @@ import org.junit.ClassRule;
 import org.junit.Test;
 
 public class AS400DatabaseMetaTest {
-  @ClassRule public static RestoreHopEnvironment env = new RestoreHopEnvironment();
+  private RestoreHopEnvironment env;
 
   AS400DatabaseMeta nativeMeta;
 
   @Before
-  public void setupOnce() throws Exception {
+  public void before() throws Exception {
+    env = new RestoreHopEnvironment();
     nativeMeta = new AS400DatabaseMeta();
     nativeMeta.setAccessType( DatabaseMeta.TYPE_ACCESS_NATIVE );
-    HopClientEnvironment.init();
   }
 
   @Test

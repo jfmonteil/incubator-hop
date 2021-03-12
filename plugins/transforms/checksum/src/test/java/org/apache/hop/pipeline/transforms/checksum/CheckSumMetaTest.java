@@ -36,7 +36,7 @@ import java.util.Map;
 import static org.junit.Assert.assertEquals;
 
 public class CheckSumMetaTest implements IInitializer<CheckSumMeta> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   // Call the allocate method on the LoadSaveTester meta class
   @Override

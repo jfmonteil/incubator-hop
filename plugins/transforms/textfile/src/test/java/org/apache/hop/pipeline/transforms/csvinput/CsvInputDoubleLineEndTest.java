@@ -41,7 +41,7 @@ import static org.mockito.Mockito.when;
  * @see CsvInput
  */
 public class CsvInputDoubleLineEndTest extends CsvInputUnitTestBase {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
   private static final String ASCII = "windows-1252";
   private static final String UTF8 = "UTF-8";
   private static final String UTF16LE = "UTF-16LE";

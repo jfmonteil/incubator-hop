@@ -62,8 +62,6 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 public class PostgreSqlValueMetaBaseTest {
-  @ClassRule public static RestoreHopEnvironment env = new RestoreHopEnvironment();
-
   private static final String TEST_NAME = "TEST_NAME";
   private static final String LOG_FIELD = "LOG_FIELD";
   public static final int MAX_TEXT_FIELD_LEN = 5;
@@ -79,16 +77,12 @@ public class PostgreSqlValueMetaBaseTest {
   private IValueMeta valueMetaBase;
   private IVariables variables;
 
-  @BeforeClass
-  public static void setUpBeforeClass() throws HopException {
-    PluginRegistry.addPluginType(ValueMetaPluginType.getInstance());
-    PluginRegistry.addPluginType(DatabasePluginType.getInstance());
-    PluginRegistry.init();
-    HopLogStore.init();
-  }
+  private RestoreHopEnvironment env;
 
   @Before
-  public void setUp() throws HopPluginException {
+  public void before() throws Exception {
+    env = new RestoreHopEnvironment();
+
     listener = new StoreLoggingEventListener();
     HopLogStore.getAppender().addLoggingEventListener(listener);
 

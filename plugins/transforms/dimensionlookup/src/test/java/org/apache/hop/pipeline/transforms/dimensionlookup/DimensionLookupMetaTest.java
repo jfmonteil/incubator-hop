@@ -71,7 +71,7 @@ public class DimensionLookupMetaTest implements IInitializer<ITransformMeta> {
   LoadSaveTester loadSaveTester;
   Class<DimensionLookupMeta> testMetaClass = DimensionLookupMeta.class;
   private ThreadLocal<DimensionLookupMeta> holdTestingMeta = new ThreadLocal<>();
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
   private IVariables variables;
 
   @BeforeClass

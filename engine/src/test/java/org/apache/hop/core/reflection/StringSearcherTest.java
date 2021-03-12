@@ -24,7 +24,7 @@ import org.junit.ClassRule;
 //import org.apache.hop.pipeline.transforms.filterrows.FilterRowsMeta;
 
 public class StringSearcherTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @BeforeClass
   public static void setUpBeforeClass() throws org.apache.hop.core.exception.HopException {

@@ -33,17 +33,17 @@ import static org.junit.Assert.assertEquals;
 
 
 public class ValueDateUtilTest {
+  private RestoreHopEnvironment env;
   private TimeZone defTimeZone;
   private TimeZone defUserTimezone;
 
-  @ClassRule public static RestoreHopEnvironment env = new RestoreHopEnvironment();
-
   @Before
-  public void setUp() {
+  public void before() throws Exception {
     defUserTimezone = TimeZone.getTimeZone( System.getProperty( "user.timezone" ) );
     defTimeZone = java.util.TimeZone.getDefault();
     System.setProperty( "user.timezone", "UTC" );
     TimeZone.setDefault( null );
+    env = new RestoreHopEnvironment();
   }
 
   @After

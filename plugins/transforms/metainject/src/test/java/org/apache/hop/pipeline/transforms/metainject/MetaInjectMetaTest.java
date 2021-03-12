@@ -63,7 +63,7 @@ public class MetaInjectMetaTest {
 
   private static MetaInjectMeta metaInjectMeta;
 
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @BeforeClass
   public static void SetUp() throws Exception {

@@ -23,9 +23,14 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.math.BigDecimal;
+import java.util.Locale;
 
 
 public class ValueMetaBaseLenientStringConversionTest {
+
+  public void setUp() throws Exception {
+    Locale.setDefault(Locale.US);
+  }
 
   @Test
   public void testStrToIntLenient() throws Exception {

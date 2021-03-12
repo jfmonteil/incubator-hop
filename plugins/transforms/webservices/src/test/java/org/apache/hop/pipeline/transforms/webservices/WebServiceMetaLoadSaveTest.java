@@ -37,7 +37,7 @@ import java.util.Random;
 import java.util.UUID;
 
 public class WebServiceMetaLoadSaveTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
   LoadSaveTester loadSaveTester;
   Class<WebServiceMeta> testMetaClass = WebServiceMeta.class;
 

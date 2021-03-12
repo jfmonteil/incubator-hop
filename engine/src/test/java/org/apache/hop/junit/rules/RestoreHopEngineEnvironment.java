@@ -21,7 +21,15 @@ import org.apache.hop.core.HopEnvironment;
 
 public class RestoreHopEngineEnvironment extends RestoreHopEnvironment {
 
-  @Override void defaultInit() throws Throwable {
+  /**
+   * Creates a {@code RestoreHopEnvironment} rule that restores all system properties and resets any Hop related
+   * environment instances.
+   */
+  public RestoreHopEngineEnvironment() throws Exception {
+    defaultInit();
+  }
+
+  @Override void defaultInit() throws Exception {
     super.defaultInit();
     HopEnvironment.init();
   }

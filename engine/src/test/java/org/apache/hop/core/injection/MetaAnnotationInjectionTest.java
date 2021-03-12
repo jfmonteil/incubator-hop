@@ -42,7 +42,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 public class MetaAnnotationInjectionTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   private static final String FIELD_ONE = "FIELD_ONE";
 

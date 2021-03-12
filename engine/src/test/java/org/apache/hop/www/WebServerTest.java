@@ -42,7 +42,7 @@ import static org.mockito.Mockito.when;
  * @author Tatsiana_Kasiankova
  */
 public class WebServerTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   /**
    *

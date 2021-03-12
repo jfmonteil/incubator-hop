@@ -27,7 +27,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ExecProcessMetaTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   @Test
   public void testRoundTrip() throws HopException {

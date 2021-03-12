@@ -51,7 +51,7 @@ import static org.junit.Assert.fail;
 public class DeleteMetaTest implements IInitializer<ITransformMeta> {
   LoadSaveTester loadSaveTester;
   Class<DeleteMeta> testMetaClass = DeleteMeta.class;
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   @Before
   public void setUpLoadSave() throws Exception {

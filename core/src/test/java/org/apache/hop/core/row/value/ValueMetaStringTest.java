@@ -43,10 +43,11 @@ public class ValueMetaStringTest {
 
   private ConfigurableMeta meta;
 
-  @ClassRule public static RestoreHopEnvironment env = new RestoreHopEnvironment();
+  private RestoreHopEnvironment env;
 
   @Before
-  public void setUp() {
+  public void setUp() throws Exception {
+    env = new RestoreHopEnvironment();
     meta = new ConfigurableMeta( BASE_VALUE );
   }
 

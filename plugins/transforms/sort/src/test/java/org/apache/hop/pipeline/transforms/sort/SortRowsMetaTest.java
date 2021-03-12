@@ -32,7 +32,7 @@ import java.util.*;
 import static org.junit.Assert.assertEquals;
 
 public class SortRowsMetaTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   /**
    * @throws HopException

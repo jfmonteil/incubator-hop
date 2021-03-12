@@ -39,7 +39,7 @@ import java.util.Map;
 public class ExecSqlMetaTest implements IInitializer<ITransformMeta> {
   LoadSaveTester loadSaveTester;
   Class<ExecSqlMeta> testMetaClass = ExecSqlMeta.class;
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Before
   public void setUpLoadSave() throws Exception {

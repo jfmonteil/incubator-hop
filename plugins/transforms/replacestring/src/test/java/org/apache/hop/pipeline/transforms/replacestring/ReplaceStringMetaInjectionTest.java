@@ -27,7 +27,7 @@ import org.junit.Test;
  * Created by bmorrise on 3/21/16.
  */
 public class ReplaceStringMetaInjectionTest extends BaseMetadataInjectionTest<ReplaceStringMeta> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Before
   public void setup() throws Exception {

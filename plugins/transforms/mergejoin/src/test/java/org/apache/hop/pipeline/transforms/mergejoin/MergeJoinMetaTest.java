@@ -45,7 +45,7 @@ import static org.junit.Assert.assertTrue;
 
 
 public class MergeJoinMetaTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   LoadSaveTester loadSaveTester;
 

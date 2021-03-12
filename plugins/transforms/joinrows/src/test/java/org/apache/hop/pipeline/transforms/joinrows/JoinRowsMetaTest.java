@@ -42,7 +42,7 @@ import static org.mockito.Mockito.mock;
 public class JoinRowsMetaTest {
   LoadSaveTester loadSaveTester;
   Class<JoinRowsMeta> testMetaClass = JoinRowsMeta.class;
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Before
   public void setUpLoadSave() throws Exception {

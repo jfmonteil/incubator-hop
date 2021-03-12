@@ -38,7 +38,7 @@ import java.util.Random;
 import java.util.UUID;
 
 public class JaninoMetaTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @BeforeClass
   public static void setUpBeforeClass() throws HopPluginException {

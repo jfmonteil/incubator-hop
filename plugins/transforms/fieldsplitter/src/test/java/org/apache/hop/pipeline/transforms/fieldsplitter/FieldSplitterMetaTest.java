@@ -41,7 +41,7 @@ import java.util.List;
 import java.util.Map;
 
 public class FieldSplitterMetaTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @BeforeClass
   public static void setUpBeforeClass() throws HopException {

@@ -28,7 +28,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class CsvInputContentParsingTest extends BaseCsvParsingTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   @Test
   public void testDefaultOptions() throws Exception {

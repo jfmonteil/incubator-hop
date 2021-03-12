@@ -41,7 +41,7 @@ import java.util.UUID;
  * @author nhudak
  */
 public class SwitchCaseMetaTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   LoadSaveTester<SwitchCaseMeta> loadSaveTester;
 

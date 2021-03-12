@@ -35,7 +35,7 @@ import java.util.Map;
 public class DynamicSqlRowMetaTest {
   LoadSaveTester loadSaveTester;
   Class<DynamicSqlRowMeta> testMetaClass = DynamicSqlRowMeta.class;
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Before
   public void setUpLoadSave() throws Exception {

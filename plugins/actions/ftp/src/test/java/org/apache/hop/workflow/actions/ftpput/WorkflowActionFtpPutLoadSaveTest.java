@@ -19,6 +19,7 @@ package org.apache.hop.workflow.actions.ftpput;
 
 import org.apache.hop.junit.rules.RestoreHopEngineEnvironment;
 import org.apache.hop.workflow.action.loadsave.WorkflowActionLoadSaveTestSupport;
+import org.junit.Before;
 import org.junit.ClassRule;
 
 import java.util.Arrays;
@@ -27,7 +28,12 @@ import java.util.Map;
 
 public class WorkflowActionFtpPutLoadSaveTest
     extends WorkflowActionLoadSaveTestSupport<ActionFtpPut> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  private RestoreHopEngineEnvironment env;
+
+  @Before
+  public void setUp() throws Exception {
+    env = new RestoreHopEngineEnvironment();
+  }
 
   @Override
   protected Class<ActionFtpPut> getActionClass() {

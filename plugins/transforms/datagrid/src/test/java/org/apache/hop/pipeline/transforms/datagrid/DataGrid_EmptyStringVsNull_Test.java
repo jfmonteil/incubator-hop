@@ -41,7 +41,7 @@ import static org.mockito.Mockito.when;
 public class DataGrid_EmptyStringVsNull_Test {
   private TransformMockHelper<DataGridMeta, ITransformData> helper;
 
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   @BeforeClass
   public static void initHop() throws Exception {

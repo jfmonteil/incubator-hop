@@ -52,7 +52,7 @@ import static org.mockito.Mockito.*;
 @RunWith( PowerMockRunner.class )
 public class IfNullTest {
   TransformMockHelper<IfNullMeta, IfNullData> smh;
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @BeforeClass
   public static void beforeClass() throws HopException {

@@ -54,7 +54,7 @@ import static org.mockito.Mockito.when;
  * @see Calculator
  */
 public class CalculatorBackwardCompatibilityUnitTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
   private TransformMockHelper<CalculatorMeta, CalculatorData> smh;
 
   private static final String SYS_PROPERTY_ROUND_2_MODE = "ROUND_2_MODE";

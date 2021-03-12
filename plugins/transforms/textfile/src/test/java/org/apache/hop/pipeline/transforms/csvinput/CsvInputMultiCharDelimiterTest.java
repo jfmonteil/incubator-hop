@@ -32,7 +32,7 @@ import java.io.File;
 import static org.junit.Assert.*;
 
 public class CsvInputMultiCharDelimiterTest extends CsvInputUnitTestBase {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   private CsvInput csvInput;
   private TransformMockHelper<CsvInputMeta, CsvInputData> transformMockHelper;

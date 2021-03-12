@@ -1,0 +1,44 @@
+module hop.core {
+  requires com.fasterxml.jackson.annotation;
+  requires commons.lang;
+  requires commons.vfs2;
+  requires java.sql;
+  requires com.google.common;
+  requires commons.io;
+  requires org.jboss.jandex;
+  requires commons.codec;
+  requires commons.logging;
+  requires batik.anim;
+  requires batik.dom;
+  requires batik.svggen;
+  requires java.desktop;
+  requires batik.util;
+  requires batik.bridge;
+  requires xml.apis.ext;
+  requires org.apache.commons.collections4;
+  requires batik.gvt;
+  requires httpcore;
+  requires httpclient;
+  requires encoder;
+  requires dom4j;
+  requires batik.awt.util;
+  requires com.fasterxml.jackson.core;
+  requires com.fasterxml.jackson.databind;
+  requires gson;
+  requires org.eclipse.jetty.util;
+  requires json.simple;
+  requires org.slf4j;
+
+  exports org.apache.hop.core.logging;
+  exports org.apache.hop.core;
+  exports org.apache.hop.core.database;
+  exports org.apache.hop.i18n;
+  exports org.apache.hop.laf;
+  exports org.apache.hop.metadata.api;
+  exports org.apache.hop.metadata.plugin;
+  exports org.apache.hop.metadata.serializer;
+  exports org.apache.hop.metadata.util;
+  exports org.apache.hop.server;
+  exports org.apache.hop.version;
+
+}

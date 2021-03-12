@@ -57,7 +57,7 @@ import static org.mockito.Mockito.when;
  * @see SalesforceInsert
  */
 public class SalesForceDateFieldTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
   private TransformMockHelper<SalesforceInsertMeta, SalesforceInsertData> smh;
 
   @BeforeClass

@@ -28,12 +28,15 @@ import java.util.Map;
 import static org.junit.Assert.*;
 
 public class TeradataDatabaseMetaTest {
-  @ClassRule public static RestoreHopEnvironment env = new RestoreHopEnvironment();
 
   private TeradataDatabaseMeta nativeMeta;
 
+  private RestoreHopEnvironment env;
+
   @Before
-  public void setupBefore() {
+  public void before() throws Exception {
+    env = new RestoreHopEnvironment();
+
     nativeMeta = new TeradataDatabaseMeta();
     nativeMeta.setAccessType( DatabaseMeta.TYPE_ACCESS_NATIVE );
   }

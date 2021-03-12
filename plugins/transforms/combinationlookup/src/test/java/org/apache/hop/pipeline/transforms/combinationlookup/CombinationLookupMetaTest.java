@@ -52,7 +52,7 @@ public class CombinationLookupMetaTest implements IInitializer<ITransformMeta> {
   Class<CombinationLookupMeta> testMetaClass = CombinationLookupMeta.class;
   private IVariables variables;
 
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   @Before
   public void setUpLoadSave() throws Exception {

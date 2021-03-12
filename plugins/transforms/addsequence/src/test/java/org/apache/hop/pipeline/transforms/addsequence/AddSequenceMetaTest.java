@@ -33,7 +33,7 @@ import java.util.Map;
 
 public class AddSequenceMetaTest {
 
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @BeforeClass
   public static void setUpBeforeClass() throws HopException {

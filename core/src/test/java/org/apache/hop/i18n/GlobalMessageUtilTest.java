@@ -19,13 +19,19 @@ package org.apache.hop.i18n;
 
 import org.apache.hop.junit.rules.RestoreHopEnvironment;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Test;
 
 import java.util.Locale;
 
 public class GlobalMessageUtilTest {
-  @ClassRule public static RestoreHopEnvironment env = new RestoreHopEnvironment();
+  private RestoreHopEnvironment env;
+
+  @Before
+  public void before() throws Exception {
+    env = new RestoreHopEnvironment();
+  }
 
   @Test
   public void testGetLocaleString() {
@@ -55,7 +61,13 @@ public class GlobalMessageUtilTest {
   @Test
   public void calculateString() {
 
+    LanguageChoice.getInstance().setDefaultLocale( Locale.FRENCH ); // "fr" - fall back on foo/messages_fr.properties
+    Assert.assertEquals( "Une certaine valeur foo", GlobalMessageUtil.calculateString( new String[] { GlobalMessages
+        .SYSTEM_BUNDLE_PACKAGE, "org.apache.hop.foo" }, "someKey", new String[] { "foo" }, GlobalMessages.PKG,
+      GlobalMessages.BUNDLE_NAME ) );
+
     // "fr", "FR"
+    LanguageChoice.getInstance().setDefaultLocale( Locale.US );
     Assert.assertEquals( "Une certaine valeur foo", GlobalMessageUtil.calculateString(
       GlobalMessages.SYSTEM_BUNDLE_PACKAGE, Locale.FRANCE, "someKey", new String[] { "foo" }, GlobalMessages.PKG,
       GlobalMessages.BUNDLE_NAME ) );
@@ -83,11 +95,6 @@ public class GlobalMessageUtilTest {
     LanguageChoice.getInstance().setDefaultLocale( Locale.FRENCH ); // "fr" - fall back on "default" messages.properties
     Assert.assertEquals( "Some Value foo", GlobalMessageUtil.calculateString( new String[] { GlobalMessages
       .SYSTEM_BUNDLE_PACKAGE }, "someKey", new String[] { "foo" }, GlobalMessages.PKG, GlobalMessages.BUNDLE_NAME ) );
-
-    LanguageChoice.getInstance().setDefaultLocale( Locale.FRENCH ); // "fr" - fall back on foo/messages_fr.properties
-    Assert.assertEquals( "Une certaine valeur foo", GlobalMessageUtil.calculateString( new String[] { GlobalMessages
-        .SYSTEM_BUNDLE_PACKAGE, "org.apache.hop.foo" }, "someKey", new String[] { "foo" }, GlobalMessages.PKG,
-      GlobalMessages.BUNDLE_NAME ) );
 
     LanguageChoice.getInstance().setDefaultLocale( Locale.JAPANESE ); // "jp"
     Assert.assertEquals( "何らかの値 foo", GlobalMessageUtil.calculateString( new String[] { GlobalMessages

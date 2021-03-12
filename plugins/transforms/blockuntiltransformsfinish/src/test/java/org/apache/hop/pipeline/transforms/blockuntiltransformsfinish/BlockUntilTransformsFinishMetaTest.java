@@ -43,7 +43,7 @@ public class BlockUntilTransformsFinishMetaTest implements IInitializer<BlockUnt
   LoadSaveTester<BlockUntilTransformsFinishMeta> loadSaveTester;
   Class<BlockUntilTransformsFinishMeta> testMetaClass = BlockUntilTransformsFinishMeta.class;
 
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Before
   public void setUpLoadSave() throws Exception {

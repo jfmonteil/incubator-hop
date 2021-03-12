@@ -31,7 +31,7 @@ import java.util.Map;
 import java.util.Random;
 
 public class WorkflowActionPGPDecryptFilesLoadSaveTest extends WorkflowActionLoadSaveTestSupport<ActionPGPDecryptFiles> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Override
   protected Class<ActionPGPDecryptFiles> getActionClass() {

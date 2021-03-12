@@ -46,7 +46,7 @@ import static org.junit.Assert.assertTrue;
 public class DataGridMetaTest implements IInitializer<ITransformMeta> {
   LoadSaveTester loadSaveTester;
   Class<DataGridMeta> testMetaClass = DataGridMeta.class;
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Before
   public void setUpLoadSave() throws Exception {

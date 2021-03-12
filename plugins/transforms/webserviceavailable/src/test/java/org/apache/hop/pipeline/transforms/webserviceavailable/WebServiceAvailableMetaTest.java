@@ -27,7 +27,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class WebServiceAvailableMetaTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Test
   public void testLoadSave() throws HopException {

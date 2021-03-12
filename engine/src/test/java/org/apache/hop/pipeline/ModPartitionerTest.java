@@ -19,6 +19,7 @@ package org.apache.hop.pipeline;
 
 import org.apache.hop.core.exception.HopException;
 import org.apache.hop.junit.rules.RestoreHopEngineEnvironment;
+import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Test;
 
@@ -26,8 +27,12 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ModPartitionerTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  private RestoreHopEngineEnvironment env;
 
+  @Before
+  public void setUp() throws Exception {
+    env = new RestoreHopEngineEnvironment();
+  }
   @Test
   public void testSerialization() throws HopException {
     List<String> attributes = Arrays.asList( "FieldName" );

@@ -58,8 +58,7 @@ import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 
 public class OracleDatabaseMetaTest {
-  @ClassRule
-  public static RestoreHopEnvironment env = new RestoreHopEnvironment();
+
 	
   private final String sequenceName = "sequence_name";
   

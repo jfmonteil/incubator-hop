@@ -42,7 +42,7 @@ import static org.junit.Assert.assertTrue;
 
 public class CalculatorMetaTest implements IInitializer<CalculatorMeta> {
 
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   LoadSaveTester<CalculatorMeta> loadSaveTester;
   Class<CalculatorMeta> testMetaClass = CalculatorMeta.class;

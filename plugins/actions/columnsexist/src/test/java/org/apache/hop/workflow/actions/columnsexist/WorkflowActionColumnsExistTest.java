@@ -55,19 +55,14 @@ import static org.mockito.Mockito.when;
  */
 
 public class WorkflowActionColumnsExistTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  private RestoreHopEngineEnvironment env;
 
   private static final String TABLENAME = "TABLE";
+
   private static final String SCHEMANAME = "SCHEMA";
   private static final String[] COLUMNS = new String[] { "COLUMN1", "COLUMN2" };
   private ActionColumnsExist action;
   private Database db;
-
-
-  @BeforeClass
-  public static void setUpBeforeClass() throws HopException {
-    HopEnvironment.init();
-  }
 
   @AfterClass
   public static void tearDown() {
@@ -75,7 +70,9 @@ public class WorkflowActionColumnsExistTest {
   }
 
   @Before
-  public void setUp() {
+  public void setUp() throws Exception {
+    env = new RestoreHopEngineEnvironment();
+
     IWorkflowEngine<WorkflowMeta> parentWorkflow = new LocalWorkflowEngine( new WorkflowMeta() );
     action = spy( new ActionColumnsExist( "" ) );
     parentWorkflow.getWorkflowMeta().addAction( new ActionMeta( action ) );

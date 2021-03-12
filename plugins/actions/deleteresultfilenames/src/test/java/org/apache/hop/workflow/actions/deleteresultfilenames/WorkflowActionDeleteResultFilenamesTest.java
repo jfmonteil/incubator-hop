@@ -18,6 +18,7 @@ package org.apache.hop.workflow.actions.deleteresultfilenames;
 
 import org.apache.hop.workflow.action.loadsave.WorkflowActionLoadSaveTestSupport;
 import org.apache.hop.junit.rules.RestoreHopEngineEnvironment;
+import org.junit.Before;
 import org.junit.ClassRule;
 
 import java.util.Arrays;
@@ -25,7 +26,12 @@ import java.util.List;
 import java.util.Map;
 
 public class WorkflowActionDeleteResultFilenamesTest extends WorkflowActionLoadSaveTestSupport<ActionDeleteResultFilenames> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  private RestoreHopEngineEnvironment env;
+
+  @Before
+  public void setUp() throws Exception {
+    env = new RestoreHopEngineEnvironment();
+  }
 
   @Override
   protected Class<ActionDeleteResultFilenames> getActionClass() {

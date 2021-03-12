@@ -38,7 +38,7 @@ import org.junit.ClassRule;
 import org.junit.Test;
 
 public class LdapOutputMetaTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   LoadSaveTester<LdapOutputMeta> loadSaveTester;
 

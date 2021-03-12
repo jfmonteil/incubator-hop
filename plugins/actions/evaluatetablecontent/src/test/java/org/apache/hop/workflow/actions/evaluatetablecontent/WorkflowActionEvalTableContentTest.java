@@ -62,9 +62,11 @@ public class WorkflowActionEvalTableContentTest {
   private ActionEvalTableContent action;
   private static IPlugin mockDbPlugin;
 
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  private RestoreHopEngineEnvironment env;
+
 
   public static class DBMockIface extends BaseDatabaseMeta {
+
 
     @Override
     public Object clone() {
@@ -112,9 +114,15 @@ public class WorkflowActionEvalTableContentTest {
 
   // private static DBMockIface dbi = DBMockIface();
 
-  @BeforeClass
-  public static void setUpBeforeClass() throws Exception {
-    HopClientEnvironment.init();
+  @AfterClass
+  public static void tearDownAfterClass() throws Exception {
+    HopClientEnvironment.reset();
+  }
+
+  @Before
+  public void setUp() throws Exception {
+    env = new RestoreHopEngineEnvironment();
+
     dbMap.put( IDatabase.class, DBMockIface.class.getName() );
 
     PluginRegistry preg = PluginRegistry.getInstance();
@@ -131,15 +139,7 @@ public class WorkflowActionEvalTableContentTest {
     when( mockDbPlugin.getClassMap() ).thenReturn( dbMap );
 
     preg.registerPlugin( DatabasePluginType.class, mockDbPlugin );
-  }
 
-  @AfterClass
-  public static void tearDownAfterClass() throws Exception {
-    HopClientEnvironment.reset();
-  }
-
-  @Before
-  public void setUp() throws Exception {
     MockDriver.registerInstance();
     IWorkflowEngine<WorkflowMeta> workflow = new LocalWorkflowEngine( new WorkflowMeta() );
     action = new ActionEvalTableContent();

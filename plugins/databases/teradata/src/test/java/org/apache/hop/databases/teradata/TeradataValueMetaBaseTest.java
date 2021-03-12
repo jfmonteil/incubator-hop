@@ -46,8 +46,7 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.*;
 
 public class TeradataValueMetaBaseTest {
-  @ClassRule
-  public static RestoreHopEnvironment env = new RestoreHopEnvironment();
+
 
   // Get PKG from class under test
   private Class<?> PKG = ValueMetaBase.PKG;

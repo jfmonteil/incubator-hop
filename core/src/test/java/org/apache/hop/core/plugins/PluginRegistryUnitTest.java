@@ -26,6 +26,7 @@ import org.apache.hop.core.row.RowBuffer;
 import org.apache.hop.core.row.value.ValueMetaPlugin;
 import org.apache.hop.core.row.value.ValueMetaPluginType;
 import org.apache.hop.junit.rules.RestoreHopEnvironment;
+import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Test;
 
@@ -47,7 +48,12 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public class PluginRegistryUnitTest {
-  @ClassRule public static RestoreHopEnvironment env = new RestoreHopEnvironment();
+  private RestoreHopEnvironment env;
+
+  @Before
+  public void before() throws Exception {
+    env = new RestoreHopEnvironment();
+  }
 
   @Test
   public void getGetPluginInformation() throws HopPluginException {

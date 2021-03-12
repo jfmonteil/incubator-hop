@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 
 public class WorkflowActionMoveFilesTest extends WorkflowActionLoadSaveTestSupport<ActionMoveFiles> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Override
   protected Class<ActionMoveFiles> getActionClass() {

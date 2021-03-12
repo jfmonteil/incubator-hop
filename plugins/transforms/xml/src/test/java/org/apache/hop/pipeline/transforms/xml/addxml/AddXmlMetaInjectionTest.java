@@ -25,7 +25,7 @@ import org.junit.ClassRule;
 import org.junit.Test;
 
 public class AddXmlMetaInjectionTest extends BaseMetadataInjectionTest<AddXmlMeta> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   @Before
   public void setup() {

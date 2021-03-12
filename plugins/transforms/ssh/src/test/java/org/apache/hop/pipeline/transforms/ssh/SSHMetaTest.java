@@ -40,7 +40,7 @@ import java.util.Map;
 import static org.junit.Assert.assertEquals;
 
 public class SSHMetaTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @BeforeClass
   public static void beforeClass() throws HopException {

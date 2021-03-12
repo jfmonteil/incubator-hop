@@ -20,16 +20,16 @@ import junit.framework.Assert;
 import org.apache.hop.core.HopClientEnvironment;
 import org.apache.hop.core.exception.HopException;
 import org.apache.hop.junit.rules.RestoreHopEngineEnvironment;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.ClassRule;
 import org.junit.Test;
 
 public class WorkflowEntryTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
 
   @BeforeClass
-  public static void setupBeforeClass() throws HopException {
-    HopClientEnvironment.init();
+  public static void setupBeforeClass() throws Exception {
+    new RestoreHopEngineEnvironment();
   }
 
   @Test

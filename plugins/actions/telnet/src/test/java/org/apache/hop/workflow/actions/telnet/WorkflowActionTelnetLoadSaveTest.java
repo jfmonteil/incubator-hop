@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Map;
 
 public class WorkflowActionTelnetLoadSaveTest extends WorkflowActionLoadSaveTestSupport<ActionTelnet> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Override
   protected Class<ActionTelnet> getActionClass() {

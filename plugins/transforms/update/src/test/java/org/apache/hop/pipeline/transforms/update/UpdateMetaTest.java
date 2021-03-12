@@ -53,7 +53,7 @@ import static org.junit.Assert.fail;
 
 
 public class UpdateMetaTest implements IInitializer<ITransformMeta> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   private TransformMeta transformMeta;
   private Update upd;

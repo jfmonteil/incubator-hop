@@ -43,7 +43,7 @@ import static org.junit.Assert.assertNotNull;
 public class FilterRowsMetaTest {
   LoadSaveTester loadSaveTester;
   Class<FilterRowsMeta> testMetaClass = FilterRowsMeta.class;
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Before
   public void setUpLoadSave() throws Exception {

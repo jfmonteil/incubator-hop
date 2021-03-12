@@ -40,7 +40,7 @@ import java.util.Map;
 public class SetValueFieldMetaTest implements IInitializer<ITransformMeta> {
   LoadSaveTester loadSaveTester;
   Class<SetValueFieldMeta> testMetaClass = SetValueFieldMeta.class;
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Before
   public void setUpLoadSave() throws Exception {

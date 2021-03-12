@@ -52,7 +52,12 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.spy;
 
 public class RowMetaTest {
-  @ClassRule public static RestoreHopEnvironment env = new RestoreHopEnvironment();
+  private RestoreHopEnvironment env;
+
+  @Before
+  public void before() throws Exception {
+    env = new RestoreHopEnvironment();
+  }
 
   IRowMeta rowMeta = new RowMeta();
   IValueMeta string;
@@ -62,11 +67,6 @@ public class RowMetaTest {
   IValueMeta charly;
   IValueMeta dup;
   IValueMeta bin;
-
-  @BeforeClass
-  public static void setUpBeforeClass() throws Exception {
-    HopClientEnvironment.init();
-  }
 
   @AfterClass
   public static void tearDownAfterClass() throws Exception {

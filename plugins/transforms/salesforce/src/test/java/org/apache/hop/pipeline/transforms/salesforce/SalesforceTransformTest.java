@@ -52,7 +52,7 @@ import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.when;
 
 public class SalesforceTransformTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   private TransformMockHelper<SalesforceTransformMeta, SalesforceTransformData> smh;
 

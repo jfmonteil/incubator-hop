@@ -33,7 +33,7 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.Assert.assertEquals;
 
 public class MetricsRegistryTest {
-  @ClassRule public static RestoreHopEnvironment env = new RestoreHopEnvironment();
+  private RestoreHopEnvironment env;
   private MetricsRegistry metricsRegistry;
   private List<String> logIds;
   private int threadCount = 100;
@@ -41,7 +41,8 @@ public class MetricsRegistryTest {
   private CountDownLatch countDownLatch = null;
 
   @Before
-  public void setUp() {
+  public void setUp() throws Exception {
+    env = new RestoreHopEnvironment();
     metricsRegistry = MetricsRegistry.getInstance();
     metricsRegistry.reset();
     logIds = new ArrayList<>( logChannelIdCount );

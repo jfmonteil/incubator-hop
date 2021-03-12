@@ -21,6 +21,7 @@ import org.apache.hop.workflow.action.loadsave.WorkflowActionLoadSaveTestSupport
 import org.apache.hop.junit.rules.RestoreHopEngineEnvironment;
 import org.apache.hop.pipeline.transforms.loadsave.validator.IFieldLoadSaveValidator;
 import org.apache.hop.pipeline.transforms.loadsave.validator.IntLoadSaveValidator;
+import org.junit.Before;
 import org.junit.ClassRule;
 
 import java.util.Arrays;
@@ -29,7 +30,12 @@ import java.util.List;
 import java.util.Map;
 
 public class WorkflowActionGetPOPLoadSaveTest extends WorkflowActionLoadSaveTestSupport<ActionGetPOP> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  private RestoreHopEngineEnvironment env;
+
+  @Before
+  public void setUp() throws Exception {
+    env = new RestoreHopEngineEnvironment();
+  }
 
   @Override
   protected Class<ActionGetPOP> getActionClass() {
@@ -38,14 +44,14 @@ public class WorkflowActionGetPOPLoadSaveTest extends WorkflowActionLoadSaveTest
 
   @Override
   protected List<String> listCommonAttributes() {
-    return Arrays.asList( new String[] { "serverName", "userName", "password", "useSSL", "port", "outputDirectory",
+    return Arrays.asList( "serverName", "userName", "password", "useSSL", "port", "outputDirectory",
       "filenamePattern", "retrievemails", "firstMails", "delete", "saveMessage", "saveAttachment",
       "differentFolderForAttachment", "protocol", "attachmentFolder", "attachmentWildcard", "valueImapList",
       "firstIMAPMails", "IMAPFolder", "senderSearchTerm", "notTermSenderSearch", "receipientSearch",
       "notTermReceipientSearch", "subjectSearch", "notTermSubjectSearch", "bodySearch", "notTermBodySearch",
       "conditionReceivedDate", "notTermReceivedDateSearch", "receivedDate1", "receivedDate2", "actiontype",
       "moveToIMAPFolder", "createMoveToFolder", "createLocalFolder", "afterGetIMAP", "includeSubFolders",
-      "useProxy", "proxyUsername" } );
+      "useProxy", "proxyUsername" );
   }
 
   @Override

@@ -58,7 +58,7 @@ public class RegexEvalMetaTest implements IInitializer<ITransform> {
   IVariables mockVariableSpace;
   LoadSaveTester loadSaveTester;
   Class<RegexEvalMeta> testMetaClass = RegexEvalMeta.class;
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   @BeforeClass
   public static void setupClass() throws HopException {

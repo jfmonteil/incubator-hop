@@ -24,7 +24,7 @@ import org.junit.ClassRule;
 import org.junit.Test;
 
 public class IfNullMetaInjectionTest extends BaseMetadataInjectionTest<IfNullMeta> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Before
   public void setup() throws Exception {

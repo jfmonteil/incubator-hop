@@ -24,7 +24,6 @@ import org.apache.hop.core.row.RowMeta;
 import org.apache.hop.core.xml.XmlHandler;
 import org.w3c.dom.Node;
 
-import javax.xml.bind.annotation.XmlRootElement;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -56,7 +55,6 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author Matt
  * @since 05-11-2003
  */
-@XmlRootElement
 public class Result implements Cloneable {
 
   /**

@@ -47,18 +47,16 @@ import static org.mockito.Mockito.spy;
 
 public class MsSqlServerDatabaseMetaTest {
   MsSqlServerDatabaseMeta nativeMeta;
-  @ClassRule public static RestoreHopEnvironment env = new RestoreHopEnvironment();
+  private RestoreHopEnvironment env;
 
   private DatabaseMeta databaseMeta;
+
   private IDatabase iDatabase;
   private IVariables variables;
 
-  @BeforeClass
-  public static void setUpOnce() throws HopPluginException, HopException {
-    // Register Natives to create a default DatabaseMeta
-    DatabasePluginType.getInstance().searchPlugins();
-    ValueMetaPluginType.getInstance().searchPlugins();
-    HopClientEnvironment.init();
+  @Before
+  public void before() throws Exception {
+    env = new RestoreHopEnvironment();
   }
 
   @Before

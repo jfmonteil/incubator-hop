@@ -40,18 +40,13 @@ import static org.mockito.Mockito.verify;
 
 public class CompressionInputStreamTest {
 
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  private RestoreHopEngineEnvironment env;
 
   public static final String PROVIDER_NAME = "None";
 
   public CompressionProviderFactory factory = null;
   public CompressionInputStream inStream = null;
 
-  @BeforeClass
-  public static void setUpBeforeClass() throws Exception {
-    PluginRegistry.addPluginType( CompressionPluginType.getInstance() );
-    PluginRegistry.init( false );
-  }
 
   @AfterClass
   public static void tearDownAfterClass() throws Exception {
@@ -59,6 +54,7 @@ public class CompressionInputStreamTest {
 
   @Before
   public void setUp() throws Exception {
+    env = new RestoreHopEngineEnvironment();
     factory = CompressionProviderFactory.getInstance();
     ICompressionProvider provider = factory.getCompressionProviderByName( PROVIDER_NAME );
     ByteArrayInputStream in = createTestInputStream();

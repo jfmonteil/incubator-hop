@@ -52,7 +52,7 @@ import static org.mockito.Mockito.verify;
 
 @RunWith( MockitoJUnitRunner.class )
 public class PipelineTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
   @Mock private ITransform transformMock, transformMock2;
   @Mock private ITransformData data, data2;
   @Mock private TransformMeta transformMeta, transformMeta2;

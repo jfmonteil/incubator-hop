@@ -27,7 +27,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class PropertyOutputMetaTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Test
   public void testSerialization() throws HopException {

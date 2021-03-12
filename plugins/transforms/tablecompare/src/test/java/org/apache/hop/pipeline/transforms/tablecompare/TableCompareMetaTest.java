@@ -34,7 +34,7 @@ import java.util.Map;
 public class TableCompareMetaTest {
   LoadSaveTester loadSaveTester;
   Class<TableCompareMeta> testMetaClass = TableCompareMeta.class;
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Before
   public void setUpLoadSave() throws Exception {

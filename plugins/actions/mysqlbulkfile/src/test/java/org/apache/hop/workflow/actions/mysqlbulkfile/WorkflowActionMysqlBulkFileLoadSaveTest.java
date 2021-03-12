@@ -25,7 +25,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class WorkflowActionMysqlBulkFileLoadSaveTest extends WorkflowActionLoadSaveTestSupport<ActionMysqlBulkFile> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Override
   protected Class<ActionMysqlBulkFile> getActionClass() {

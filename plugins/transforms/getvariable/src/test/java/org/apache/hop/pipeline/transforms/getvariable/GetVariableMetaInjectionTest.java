@@ -24,7 +24,7 @@ import org.junit.ClassRule;
 import org.junit.Test;
 
 public class GetVariableMetaInjectionTest extends BaseMetadataInjectionTest<GetVariableMeta> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   @Before
   public void setup() throws Exception {

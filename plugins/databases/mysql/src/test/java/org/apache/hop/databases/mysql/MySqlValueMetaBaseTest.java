@@ -59,24 +59,18 @@ public class MySqlValueMetaBaseTest {
   protected static final String TEST_NAME = "TEST_NAME";
   protected static final String LOG_FIELD = "LOG_FIELD";
 
-  @ClassRule public static RestoreHopEnvironment env = new RestoreHopEnvironment();
-  ;
+  private RestoreHopEnvironment env;
+
   private PreparedStatement preparedStatementMock = mock(PreparedStatement.class);
+
   private ResultSet resultSet;
   private DatabaseMeta databaseMeta;
   private IValueMeta valueMetaBase;
   private IVariables variables;
 
-  @BeforeClass
-  public static void setUpBeforeClass() throws HopException {
-    PluginRegistry.addPluginType(ValueMetaPluginType.getInstance());
-    PluginRegistry.addPluginType(DatabasePluginType.getInstance());
-    PluginRegistry.init();
-    // HopLogStore.init();
-  }
-
   @Before
-  public void setUp() throws HopPluginException {
+  public void before() throws Exception {
+    env = new RestoreHopEnvironment();
     valueMetaBase = ValueMetaFactory.createValueMeta(IValueMeta.TYPE_NONE);
     databaseMeta = spy(new DatabaseMeta());
     resultSet = mock(ResultSet.class);

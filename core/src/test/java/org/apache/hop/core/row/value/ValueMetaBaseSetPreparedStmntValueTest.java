@@ -43,15 +43,17 @@ import static org.mockito.Mockito.when;
 
 public class ValueMetaBaseSetPreparedStmntValueTest {
 
-  @ClassRule public static RestoreHopEnvironment env = new RestoreHopEnvironment();
+  private RestoreHopEnvironment env;
 
   private DatabaseMeta dbMeta;
+
   private PreparedStatement ps;
   private Date date;
   private Timestamp ts;
 
   @Before
-  public void setUp() {
+  public void before() throws Exception {
+    env = new RestoreHopEnvironment();
     dbMeta = mock( DatabaseMeta.class );
     when( dbMeta.supportsTimeStampToDateConversion() ).thenReturn( true );
     ps = mock( PreparedStatement.class );

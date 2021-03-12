@@ -34,7 +34,7 @@ import java.util.Map;
 public class SimpleMappingMetaTest {
   LoadSaveTester loadSaveTester;
   Class<SimpleMappingMeta> testMetaClass = SimpleMappingMeta.class;
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Before
   public void setUpLoadSave() throws Exception {

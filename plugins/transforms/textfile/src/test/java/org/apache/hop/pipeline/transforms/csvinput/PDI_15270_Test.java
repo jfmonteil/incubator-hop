@@ -46,7 +46,7 @@ public class PDI_15270_Test extends CsvInputUnitTestBase {
   private String[] expected;
   private String content;
   private TransformMockHelper<CsvInputMeta, CsvInputData> transformMockHelper;
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   @Before
   public void setUp() throws Exception {

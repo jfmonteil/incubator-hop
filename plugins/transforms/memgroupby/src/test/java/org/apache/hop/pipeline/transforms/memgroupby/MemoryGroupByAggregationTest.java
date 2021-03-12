@@ -69,7 +69,7 @@ import static org.mockito.Mockito.when;
  */
 
 public class MemoryGroupByAggregationTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   private Variables variables;
   private Map<String, Integer> aggregates;

@@ -39,7 +39,7 @@ import java.util.List;
 import java.util.Map;
 
 public class ValueMapperMetaTest implements IInitializer<ITransformMeta> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
   LoadSaveTester loadSaveTester;
   Class<ValueMapperMeta> testMetaClass = ValueMapperMeta.class;
 

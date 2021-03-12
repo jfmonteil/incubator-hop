@@ -19,6 +19,7 @@ package org.apache.hop.workflow.actions.as400command;
 import org.apache.hop.workflow.action.loadsave.WorkflowActionLoadSaveTestSupport;
 import org.apache.hop.workflow.actions.as400command.ActionAs400Command;
 import org.apache.hop.junit.rules.RestoreHopEngineEnvironment;
+import org.junit.Before;
 import org.junit.ClassRule;
 import java.util.Arrays;
 import java.util.List;
@@ -26,7 +27,12 @@ import java.util.Map;
 
 public class ActionAs400CommandLoadSaveTest
     extends WorkflowActionLoadSaveTestSupport<ActionAs400Command> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  private RestoreHopEngineEnvironment env;
+
+  @Before
+  public void setUp() throws Exception {
+    env = new RestoreHopEngineEnvironment();
+  }
 
   @Override
   protected Class<ActionAs400Command> getActionClass() {

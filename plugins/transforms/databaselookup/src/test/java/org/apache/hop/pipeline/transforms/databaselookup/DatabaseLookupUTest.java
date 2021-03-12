@@ -81,7 +81,7 @@ import static org.mockito.Mockito.when;
  * @author Andrey Khayrutdinov
  */
 public class DatabaseLookupUTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   private static final String BINARY_FIELD = "aBinaryFieldInDb";
   private static final String ID_FIELD = "id";

@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 
 public class WorkflowActionSendNagiosPassiveCheckTest extends WorkflowActionLoadSaveTestSupport<ActionSendNagiosPassiveCheck> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   @Override
   protected Class<ActionSendNagiosPassiveCheck> getActionClass() {

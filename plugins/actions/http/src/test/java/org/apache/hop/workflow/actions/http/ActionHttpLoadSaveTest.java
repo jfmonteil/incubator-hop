@@ -17,11 +17,13 @@
 
 package org.apache.hop.workflow.actions.http;
 
+import org.apache.hop.core.HopClientEnvironment;
 import org.apache.hop.workflow.action.loadsave.WorkflowActionLoadSaveTestSupport;
 import org.apache.hop.junit.rules.RestoreHopEngineEnvironment;
 import org.apache.hop.pipeline.transforms.loadsave.validator.ArrayLoadSaveValidator;
 import org.apache.hop.pipeline.transforms.loadsave.validator.IFieldLoadSaveValidator;
 import org.apache.hop.pipeline.transforms.loadsave.validator.StringLoadSaveValidator;
+import org.junit.Before;
 import org.junit.ClassRule;
 
 import java.util.Arrays;
@@ -31,7 +33,12 @@ import java.util.Map;
 import java.util.Random;
 
 public class ActionHttpLoadSaveTest extends WorkflowActionLoadSaveTestSupport<ActionHttp> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  private RestoreHopEngineEnvironment env;
+
+  @Before
+  public void setUp() throws Exception {
+    env = new RestoreHopEngineEnvironment();
+  }
 
   @Override
   protected Class<ActionHttp> getActionClass() {
@@ -40,10 +47,10 @@ public class ActionHttpLoadSaveTest extends WorkflowActionLoadSaveTestSupport<Ac
 
   @Override
   protected List<String> listCommonAttributes() {
-    return Arrays.asList( new String[] { "url", "targetFilename", "fileAppended", "dateTimeAdded",
+    return Arrays.asList( "url", "targetFilename", "fileAppended", "dateTimeAdded",
       "targetFilenameExtension", "uploadFilename", "runForEveryRow", "urlFieldname", "uploadFieldname",
       "destinationFieldname", "username", "password", "proxyHostname", "proxyPort", "nonProxyHosts",
-      "addFilenameToResult", "headerName", "headerValue" } );
+      "addFilenameToResult", "headerName", "headerValue" );
   }
 
   @Override

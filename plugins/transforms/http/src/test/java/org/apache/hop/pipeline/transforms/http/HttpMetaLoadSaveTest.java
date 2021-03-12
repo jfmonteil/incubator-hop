@@ -35,7 +35,7 @@ import java.util.List;
 import java.util.Map;
 
 public class HttpMetaLoadSaveTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   LoadSaveTester loadSaveTester;
 

@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 
 public class WorkflowActionAbortLoadSaveTest extends WorkflowActionLoadSaveTestSupport<ActionAbort> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   @Override
   protected Class<ActionAbort> getActionClass() {

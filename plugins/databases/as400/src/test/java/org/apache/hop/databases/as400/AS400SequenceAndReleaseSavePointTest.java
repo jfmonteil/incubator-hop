@@ -28,8 +28,7 @@ import org.junit.ClassRule;
 import org.junit.Test;
 
 public class AS400SequenceAndReleaseSavePointTest {
-  @ClassRule
-  public static RestoreHopEnvironment env = new RestoreHopEnvironment();
+
 
   final String sequenceName = "sequence_name";
 

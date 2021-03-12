@@ -59,7 +59,7 @@ import static org.junit.Assert.assertTrue;
 public class MemoryGroupByMetaTest implements IInitializer<MemoryGroupByMeta> {
   LoadSaveTester<MemoryGroupByMeta> loadSaveTester;
   Class<MemoryGroupByMeta> testMetaClass = MemoryGroupByMeta.class;
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Before
   public void setUpLoadSave() throws Exception {

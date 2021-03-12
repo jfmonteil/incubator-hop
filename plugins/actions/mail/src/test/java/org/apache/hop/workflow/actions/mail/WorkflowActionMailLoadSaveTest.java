@@ -25,6 +25,7 @@ import org.apache.hop.pipeline.transforms.loadsave.validator.IFieldLoadSaveValid
 import org.apache.hop.pipeline.transforms.loadsave.validator.IntLoadSaveValidator;
 import org.apache.hop.pipeline.transforms.loadsave.validator.PrimitiveIntArrayLoadSaveValidator;
 import org.apache.hop.pipeline.transforms.loadsave.validator.StringLoadSaveValidator;
+import org.junit.Before;
 import org.junit.ClassRule;
 
 import java.util.Arrays;
@@ -34,7 +35,12 @@ import java.util.Map;
 import java.util.Random;
 
 public class WorkflowActionMailLoadSaveTest extends WorkflowActionLoadSaveTestSupport<ActionMail> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  private RestoreHopEngineEnvironment env;
+
+  @Before
+  public void setUp() throws Exception {
+    env = new RestoreHopEngineEnvironment();
+  }
 
   @Override
   protected Class<ActionMail> getActionClass() {
@@ -43,12 +49,12 @@ public class WorkflowActionMailLoadSaveTest extends WorkflowActionLoadSaveTestSu
 
   @Override
   protected List<String> listCommonAttributes() {
-    return Arrays.asList( new String[] { "server", "port", "destination", "destinationCc", "destinationBCc",
+    return Arrays.asList( "server", "port", "destination", "destinationCc", "destinationBCc",
       "replyAddress", "replyName", "subject", "includeDate", "contactPerson", "contactPhone", "comment",
       "includingFiles", "zipFiles", "zipFilename", "usingAuthentication", "usingSecureAuthentication",
       "authenticationUser", "authenticationPassword", "onlySendComment", "useHTML", "usePriority",
       "encoding", "priority", "importance", "sensitivity", "secureConnectionType", "replyToAddresses",
-      "fileType", "embeddedimages", "contentids" } );
+      "fileType", "embeddedimages", "contentids" );
   }
 
   @Override

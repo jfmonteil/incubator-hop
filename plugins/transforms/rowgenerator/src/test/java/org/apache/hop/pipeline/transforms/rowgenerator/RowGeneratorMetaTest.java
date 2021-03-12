@@ -40,7 +40,7 @@ import java.util.List;
 import java.util.Map;
 
 public class RowGeneratorMetaTest implements IInitializer<ITransformMeta> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   private final String launchVariable = "${ROW_LIMIT}";
 

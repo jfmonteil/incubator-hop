@@ -46,8 +46,7 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 public class Vertica5DatabaseMetaTest extends VerticaDatabaseMetaTest {
-  @ClassRule
-  public static RestoreHopEnvironment env = new RestoreHopEnvironment();
+
 
   private static final String TEST_NAME = "TEST_NAME";
   private static final String LOG_FIELD = "LOG_FIELD";

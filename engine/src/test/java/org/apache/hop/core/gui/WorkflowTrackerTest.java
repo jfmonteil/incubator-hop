@@ -33,7 +33,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class WorkflowTrackerTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Test
   // PDI-11389 Number of workflow trackers should be limited by HOP_MAX_JOB_TRACKER_SIZE

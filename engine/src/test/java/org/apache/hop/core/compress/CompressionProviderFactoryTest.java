@@ -23,6 +23,7 @@ import org.apache.hop.core.compress.snappy.SnappyCompressionProvider;
 import org.apache.hop.core.compress.zip.ZipCompressionProvider;
 import org.apache.hop.core.plugins.PluginRegistry;
 import org.apache.hop.junit.rules.RestoreHopEngineEnvironment;
+import org.apache.hop.junit.rules.RestoreHopEnvironment;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -39,12 +40,15 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 public class CompressionProviderFactoryTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
+  private RestoreHopEnvironment env;
 
   public CompressionProviderFactory factory = null;
 
-  @BeforeClass
-  public static void setUpBeforeClass() throws Exception {
+  @Before
+  public void before() throws Exception {
+    env = new RestoreHopEnvironment();
+
     PluginRegistry.addPluginType( CompressionPluginType.getInstance() );
     PluginRegistry.init( false );
   }

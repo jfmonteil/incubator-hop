@@ -37,7 +37,7 @@ import java.util.List;
 import java.util.Map;
 
 public class TableOutputMetaLoadSaveTest implements IInitializer<ITransformMeta> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
   LoadSaveTester loadSaveTester;
   Class<TableOutputMeta> testMetaClass = TableOutputMeta.class;
 

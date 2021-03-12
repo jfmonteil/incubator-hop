@@ -18,6 +18,7 @@ package org.apache.hop.core.row.value;
 
 import org.apache.hop.core.row.IValueMeta;
 import org.apache.hop.junit.rules.RestoreHopEnvironment;
+import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Test;
 
@@ -39,7 +40,12 @@ import static org.junit.Assert.fail;
  * Created by tkafalas on 12/6/2017.
  */
 public class ValueMetaConverterTest {
-  @ClassRule public static RestoreHopEnvironment env = new RestoreHopEnvironment();
+  private RestoreHopEnvironment env;
+
+  @Before
+  public void before() throws Exception {
+    env = new RestoreHopEnvironment();
+  }
 
   private static final int startSource = 1;
   private static final int endSource = 10;

@@ -66,7 +66,7 @@ import static org.junit.Assert.assertNotNull;
  * User: Dzmitry Stsiapanau Date: 10/18/13 Time: 2:23 PM
  */
 public class TextFileOutputTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   private static final String EMPTY_FILE_NAME = "Empty File";
   private static final String EMPTY_STRING = "";

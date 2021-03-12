@@ -33,7 +33,7 @@ import java.util.Collections;
 
 
 public class PreviewRowsDialogTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   @Test
   public void getDataForRow() throws Exception {

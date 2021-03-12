@@ -40,12 +40,12 @@
     <mockito-all.version>1.9.5</mockito-all.version>
     <poi.version>3.17</poi.version>
     <dependency.com.tinkerpop.blueprints.version>2.6.0</dependency.com.tinkerpop.blueprints.version>
-    <dependency.org.powermock.version>1.6.0</dependency.org.powermock.version>
     <json-smart.version>2.2</json-smart.version>
     <json-path.version>2.1.0</json-path.version>
     <jackson-core.version>${jackson-databind.version}</jackson-core.version>
     <jackson-databind.version>2.10.2</jackson-databind.version>
     <jsch.version>0.1.54</jsch.version>
+    <powermock-core.version>1.7.4</powermock-core.version>
   </properties>
 
   <dependencies>
@@ -126,7 +126,7 @@
     <dependency>
       <groupId>org.powermock</groupId>
       <artifactId>powermock-core</artifactId>
-      <version>${dependency.org.powermock.version}</version>
+      <version>${powermock-core.version}</version>
       <scope>test</scope>
     </dependency>
 

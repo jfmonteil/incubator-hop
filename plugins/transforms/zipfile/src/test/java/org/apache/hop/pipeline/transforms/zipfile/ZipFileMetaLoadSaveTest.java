@@ -34,7 +34,7 @@ import java.util.List;
 import java.util.Map;
 
 public class ZipFileMetaLoadSaveTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
   LoadSaveTester loadSaveTester;
   Class<ZipFileMeta> testMetaClass = ZipFileMeta.class;
 

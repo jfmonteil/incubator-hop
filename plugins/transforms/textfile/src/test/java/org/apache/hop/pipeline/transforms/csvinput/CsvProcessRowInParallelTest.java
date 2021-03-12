@@ -61,7 +61,7 @@ import static org.junit.Assert.assertEquals;
 public class CsvProcessRowInParallelTest extends CsvInputUnitTestBase {
   private TransformMockHelper<CsvInputMeta, CsvInputData> transformMockHelper;
 
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Before
   public void setUp() {

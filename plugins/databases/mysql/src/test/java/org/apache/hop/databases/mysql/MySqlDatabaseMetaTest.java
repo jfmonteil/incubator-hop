@@ -66,11 +66,9 @@ import static org.mockito.Mockito.when;
 public class MySqlDatabaseMetaTest {
   MySqlDatabaseMeta nativeMeta;
 
-  @ClassRule
-  public static RestoreHopEnvironment env = new RestoreHopEnvironment();
-	
   @BeforeClass
-  public static void setUpBeforeClass() throws HopException {
+  public static void setUpBeforeClass() throws Exception {
+    new RestoreHopEnvironment();
 		PluginRegistry.addPluginType(ValueMetaPluginType.getInstance());
 		PluginRegistry.addPluginType(DatabasePluginType.getInstance());
 		PluginRegistry.init();	

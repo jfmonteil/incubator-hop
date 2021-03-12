@@ -38,7 +38,7 @@ import static org.mockito.Mockito.spy;
  * @author Andrey Khayrutdinov
  */
 public class ScriptValuesModTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @BeforeClass
   public static void initHop() throws Exception {

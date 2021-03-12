@@ -33,7 +33,7 @@ import java.util.Random;
 import java.util.UUID;
 
 public class NumberRangeMetaTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   @Test
   public void testTransformMeta() throws HopException {

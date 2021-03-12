@@ -32,7 +32,7 @@ import java.util.List;
 import java.util.Map;
 
 public class FilesToResultMetaTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   @Test
   public void testTransformMeta() throws HopException {

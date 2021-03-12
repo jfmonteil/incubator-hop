@@ -49,7 +49,7 @@ import static org.mockito.Mockito.when;
 public class StreamLookupMetaTest implements IInitializer<ITransformMeta> {
   LoadSaveTester loadSaveTester;
   Class<StreamLookupMeta> testMetaClass = StreamLookupMeta.class;
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   @Before
   public void setUpLoadSave() throws Exception {

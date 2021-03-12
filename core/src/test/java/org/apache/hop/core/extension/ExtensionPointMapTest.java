@@ -33,13 +33,15 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public class ExtensionPointMapTest {
-  @ClassRule public static RestoreHopEnvironment env = new RestoreHopEnvironment();
+  private RestoreHopEnvironment env;
+
   public static final String TEST_NAME = "testName";
   private IPluginMock pluginInterface;
   private IExtensionPoint extensionPoint;
 
   @Before
-  public void setUp() {
+  public void setUp() throws Exception {
+    env = new RestoreHopEnvironment();
     pluginInterface = mock( IPluginMock.class );
     when( pluginInterface.getName() ).thenReturn( TEST_NAME );
     when( pluginInterface.getMainType() ).thenReturn( (Class) IExtensionPoint.class );

@@ -42,7 +42,7 @@ public class YamlInputMetaTest implements IInitializer<YamlInputMeta> {
   LoadSaveTester<YamlInputMeta> loadSaveTester;
   Class<YamlInputMeta> testMetaClass = YamlInputMeta.class;
 
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   @Before
   public void setUpLoadSave() throws Exception {

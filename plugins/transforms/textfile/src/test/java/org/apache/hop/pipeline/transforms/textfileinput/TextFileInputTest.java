@@ -55,7 +55,7 @@ import static org.junit.Assert.assertEquals;
  * @deprecated replaced by implementation in the ...transforms.fileinput.text package
  */
 public class TextFileInputTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @BeforeClass
   public static void initHop() throws Exception {

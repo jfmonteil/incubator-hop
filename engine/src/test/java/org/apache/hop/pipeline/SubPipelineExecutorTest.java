@@ -68,7 +68,7 @@ import static org.mockito.Mockito.verify;
 public class SubPipelineExecutorTest {
   @Mock private ILogChannelFactory logChannelFactory;
   @Mock private LogChannel logChannel;
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Before
   public void setUp() throws Exception {

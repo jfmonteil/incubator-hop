@@ -34,7 +34,7 @@ import java.util.List;
  * @author Andrey Khayrutdinov
  */
 public class CsvInputRowNumberTest extends CsvInputUnitTestBase {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   private CsvInput csvInput;
   private TransformMockHelper<CsvInputMeta, CsvInputData> transformMockHelper;

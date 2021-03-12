@@ -51,7 +51,6 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
 
 public class SQLiteValueMetaBaseTest {
-  @ClassRule public static RestoreHopEnvironment env = new RestoreHopEnvironment();
 
   private static final String TEST_NAME = "TEST_NAME";
   private static final String LOG_FIELD = "LOG_FIELD";
@@ -68,12 +67,11 @@ public class SQLiteValueMetaBaseTest {
   private ValueMetaBase valueMetaBase;
   private IVariables variables;
 
-  @BeforeClass
-  public static void setUpBeforeClass() throws HopException {
-    PluginRegistry.addPluginType(ValueMetaPluginType.getInstance());
-    PluginRegistry.addPluginType(DatabasePluginType.getInstance());
-    PluginRegistry.init();
-    HopLogStore.init();
+  private RestoreHopEnvironment env;
+
+  @Before
+  public void before() throws Exception {
+    env = new RestoreHopEnvironment();
   }
 
   @Before

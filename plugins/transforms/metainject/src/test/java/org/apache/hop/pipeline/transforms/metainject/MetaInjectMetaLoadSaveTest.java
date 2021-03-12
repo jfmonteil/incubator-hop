@@ -31,8 +31,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 public class MetaInjectMetaLoadSaveTest {
-  @ClassRule
-  public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   LoadSaveTester loadSaveTester;
   Class<MetaInjectMeta> testMetaClass = MetaInjectMeta.class;

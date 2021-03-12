@@ -20,6 +20,7 @@ package org.apache.hop.workflow.actions.ftpdelete;
 import org.apache.hop.junit.rules.RestoreHopEngineEnvironment;
 import org.apache.hop.pipeline.transforms.loadsave.validator.IFieldLoadSaveValidator;
 import org.apache.hop.workflow.action.loadsave.WorkflowActionLoadSaveTestSupport;
+import org.junit.Before;
 import org.junit.ClassRule;
 
 import java.util.Arrays;
@@ -29,7 +30,12 @@ import java.util.Map;
 
 public class WorkflowActionFtpDeleteLoadSaveTest
     extends WorkflowActionLoadSaveTestSupport<ActionFtpDelete> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  private RestoreHopEngineEnvironment env;
+
+  @Before
+  public void setUp() throws Exception {
+    env = new RestoreHopEngineEnvironment();
+  }
 
   @Override
   protected Class<ActionFtpDelete> getActionClass() {
@@ -39,38 +45,36 @@ public class WorkflowActionFtpDeleteLoadSaveTest
   @Override
   protected List<String> listCommonAttributes() {
     return Arrays.asList(
-        new String[] {
-          "protocol",
-          "serverName",
-          "serverPort",
-          "userName",
-          "password",
-          "remoteDirectory",
-          "wildcard",
-          "timeout",
-          "activeConnection",
-          "useProxy",
-          "proxyHost",
-          "proxyPort",
-          "proxyUsername",
-          "proxyPassword",
-          "usePublicKey",
-          "keyFilename",
-          "keyFilePass",
-          "limitSuccess",
-          "successCondition",
-          "copyPrevious",
-          "socksProxyHost",
-          "socksProxyPort",
-          "socksProxyUsername",
-          "socksProxyPassword"
-        });
+      "protocol",
+      "serverName",
+      "serverPort",
+      "userName",
+      "password",
+      "remoteDirectory",
+      "wildcard",
+      "timeout",
+      "activeConnection",
+      "useProxy",
+      "proxyHost",
+      "proxyPort",
+      "proxyUsername",
+      "proxyPassword",
+      "usePublicKey",
+      "keyFilename",
+      "keyFilePass",
+      "limitSuccess",
+      "successCondition",
+      "copyPrevious",
+      "socksProxyHost",
+      "socksProxyPort",
+      "socksProxyUsername",
+      "socksProxyPassword" );
   }
 
   @Override
   protected Map<String, IFieldLoadSaveValidator<?>> createAttributeValidatorsMap() {
     Map<String, IFieldLoadSaveValidator<?>> validators =
-        new HashMap<String, IFieldLoadSaveValidator<?>>();
+      new HashMap<>();
     return validators;
   }
 }

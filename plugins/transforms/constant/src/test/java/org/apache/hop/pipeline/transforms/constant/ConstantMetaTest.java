@@ -43,7 +43,7 @@ import java.util.Map;
 public class ConstantMetaTest implements IInitializer<ConstantMeta> {
   LoadSaveTester<ConstantMeta> loadSaveTester;
   Class<ConstantMeta> testMetaClass = ConstantMeta.class;
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Before
   public void setUpLoadSave() throws Exception {

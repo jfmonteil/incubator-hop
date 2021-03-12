@@ -44,7 +44,7 @@ import static org.powermock.reflect.Whitebox.getInternalState;
 @RunWith( PowerMockRunner.class )
 @PrepareForTest( Client.class )
 public class HopServerTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   @Test
   public void callStopHopServerRestService() throws Exception {

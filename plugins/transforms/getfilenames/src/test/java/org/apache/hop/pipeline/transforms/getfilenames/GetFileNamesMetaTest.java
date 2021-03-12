@@ -34,7 +34,7 @@ import java.util.Map;
 import java.util.Random;
 
 public class GetFileNamesMetaTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   @Test
   public void testRoundTrip() throws HopException {

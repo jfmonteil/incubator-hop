@@ -38,7 +38,7 @@ import java.nio.charset.StandardCharsets;
  * @see CsvInput
  */
 public class CsvInputUnicodeTest extends CsvInputUnitTestBase {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
   private static final String UTF8 = "UTF-8";
   private static final String UTF16LE = "UTF-16LE";
   private static final String UTF16LEBOM = "x-UTF-16LE-BOM";

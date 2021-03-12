@@ -55,7 +55,7 @@ import static org.mockito.Mockito.mock;
 public class StringOperationsMetaTest implements IInitializer<ITransformMeta> {
   LoadSaveTester loadSaveTester;
   Class<StringOperationsMeta> testMetaClass = StringOperationsMeta.class;
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Before
   public void setUpLoadSave() throws Exception {

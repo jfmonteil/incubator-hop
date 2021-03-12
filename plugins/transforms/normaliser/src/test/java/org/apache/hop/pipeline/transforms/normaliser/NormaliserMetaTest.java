@@ -40,7 +40,7 @@ import java.util.UUID;
 public class NormaliserMetaTest implements IInitializer<NormaliserMeta> {
   LoadSaveTester<NormaliserMeta> loadSaveTester;
   Class<NormaliserMeta> testMetaClass = NormaliserMeta.class;
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   @Before
   public void setUpLoadSave() throws Exception {

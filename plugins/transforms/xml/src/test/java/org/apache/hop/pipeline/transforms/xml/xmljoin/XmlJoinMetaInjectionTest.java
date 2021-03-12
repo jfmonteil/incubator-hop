@@ -28,7 +28,7 @@ import org.junit.Test;
  * Created by ecuellar on 3/3/2016.
  */
 public class XmlJoinMetaInjectionTest extends BaseMetadataInjectionTest<XmlJoinMeta> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Before
   public void setup() {

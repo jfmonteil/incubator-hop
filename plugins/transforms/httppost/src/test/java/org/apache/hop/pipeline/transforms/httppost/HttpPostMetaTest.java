@@ -41,7 +41,7 @@ import static org.junit.Assert.assertNull;
 
 public class HttpPostMetaTest {
   LoadSaveTester loadSaveTester;
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Before
   public void testLoadSaveRoundTrip() throws HopException {

@@ -33,7 +33,7 @@ import java.util.Map;
 public class ExecSqlRowMetaTest {
   LoadSaveTester loadSaveTester;
   Class<ExecSqlRowMeta> testMetaClass = ExecSqlRowMeta.class;
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   @Before
   public void setUpLoadSave() throws Exception {

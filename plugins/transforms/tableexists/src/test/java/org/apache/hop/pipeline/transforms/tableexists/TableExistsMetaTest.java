@@ -29,7 +29,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class TableExistsMetaTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   @BeforeClass
   public static void setUpBeforeClass() throws HopException {

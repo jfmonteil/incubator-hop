@@ -35,7 +35,7 @@ import java.util.Random;
 import java.util.UUID;
 
 public class ExcelWriterTransformMetaTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   @BeforeClass
   public static void setUpBeforeClass() throws HopException {

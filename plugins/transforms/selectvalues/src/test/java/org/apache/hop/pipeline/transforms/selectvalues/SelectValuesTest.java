@@ -57,7 +57,7 @@ import static org.mockito.Mockito.when;
 
 /** @author Andrey Khayrutdinov */
 public class SelectValuesTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   private static final String SELECTED_FIELD = "field";
 

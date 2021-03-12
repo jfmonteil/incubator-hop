@@ -42,7 +42,7 @@ import static org.mockito.Mockito.*;
  * @author Andrey Khayrutdinov
  */
 public class SelectValues_LocaleHandling_Test {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @BeforeClass
   public static void initHop() throws Exception {

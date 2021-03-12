@@ -40,19 +40,14 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
 public class GzipCompressionInputStreamTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  private RestoreHopEngineEnvironment env;
 
   public static final String PROVIDER_NAME = "GZip";
 
   protected CompressionProviderFactory factory = null;
+
   protected GzipCompressionInputStream inStream = null;
   protected ICompressionProvider provider = null;
-
-  @BeforeClass
-  public static void setUpBeforeClass() throws Exception {
-    PluginRegistry.addPluginType( CompressionPluginType.getInstance() );
-    PluginRegistry.init( false );
-  }
 
   @AfterClass
   public static void tearDownAfterClass() throws Exception {
@@ -60,6 +55,7 @@ public class GzipCompressionInputStreamTest {
 
   @Before
   public void setUp() throws Exception {
+    env = new RestoreHopEngineEnvironment();
     factory = CompressionProviderFactory.getInstance();
     provider = factory.getCompressionProviderByName( PROVIDER_NAME );
     inStream = new GzipCompressionInputStream( createGZIPInputStream(), provider ) {

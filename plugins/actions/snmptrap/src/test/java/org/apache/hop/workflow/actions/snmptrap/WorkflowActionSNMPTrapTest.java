@@ -32,7 +32,7 @@ import java.util.List;
 import java.util.Map;
 
 public class WorkflowActionSNMPTrapTest extends WorkflowActionLoadSaveTestSupport<ActionSNMPTrap> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   @BeforeClass
   public static void beforeClass() throws HopException {

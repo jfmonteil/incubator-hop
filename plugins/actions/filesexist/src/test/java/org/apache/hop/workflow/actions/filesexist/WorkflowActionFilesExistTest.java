@@ -43,10 +43,12 @@ public class WorkflowActionFilesExistTest {
   private String existingFile1;
   private String existingFile2;
 
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  private RestoreHopEngineEnvironment env;
 
   @Before
   public void setUp() throws Exception {
+    env = new RestoreHopEngineEnvironment();
+
     workflow = new LocalWorkflowEngine( new WorkflowMeta() );
     action = new ActionFilesExist();
 

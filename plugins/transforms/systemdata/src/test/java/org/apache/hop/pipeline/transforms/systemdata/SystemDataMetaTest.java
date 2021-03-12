@@ -51,7 +51,7 @@ import static org.junit.Assert.assertEquals;
  * User: Dzmitry Stsiapanau Date: 1/20/14 Time: 3:04 PM
  */
 public class SystemDataMetaTest implements IInitializer<SystemDataMeta> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
   LoadSaveTester loadSaveTester;
   Class<SystemDataMeta> testMetaClass = SystemDataMeta.class;
   SystemDataMeta expectedSystemDataMeta;

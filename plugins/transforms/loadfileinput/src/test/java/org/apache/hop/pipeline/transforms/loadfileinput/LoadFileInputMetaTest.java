@@ -51,7 +51,7 @@ import static org.junit.Assert.assertEquals;
  * User: Dzmitry Stsiapanau Date: 12/17/13 Time: 3:11 PM
  */
 public class LoadFileInputMetaTest implements IInitializer<ITransformMeta> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
   LoadSaveTester loadSaveTester;
 
   String xmlOrig = "    " + "<include>N</include>    <include_field/>    <rownum>N</rownum>   "

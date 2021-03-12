@@ -26,7 +26,7 @@ import org.junit.ClassRule;
 import org.junit.Test;
 
 public class MetaInjectMetaInjectionTest extends BaseMetadataInjectionTest<MetaInjectMeta> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   private static final String TEST_ID = "TEST_ID";
 

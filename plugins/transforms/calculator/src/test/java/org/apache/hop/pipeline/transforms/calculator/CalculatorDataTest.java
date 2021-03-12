@@ -29,7 +29,7 @@ import static org.junit.Assert.assertTrue;
  * @author Andrey Khayrutdinov
  */
 public class CalculatorDataTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Test
   public void dataReturnsCachedValues() throws Exception {

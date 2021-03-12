@@ -37,7 +37,7 @@ import java.util.List;
 import java.util.Map;
 
 public class GetFilesRowsCountMetaTest implements IInitializer<ITransformMeta> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   LoadSaveTester loadSaveTester;
 

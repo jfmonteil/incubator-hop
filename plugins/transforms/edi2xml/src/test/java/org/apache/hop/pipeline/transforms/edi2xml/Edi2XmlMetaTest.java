@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Edi2XmlMetaTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   @Test
   public void testTransformMeta() throws HopException {

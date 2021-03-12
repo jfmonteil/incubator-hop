@@ -30,7 +30,7 @@ import java.util.List;
 
 public class ColumnExistsMetaTest {
 
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @BeforeClass
   public static void setUpBeforeClass() throws HopException {

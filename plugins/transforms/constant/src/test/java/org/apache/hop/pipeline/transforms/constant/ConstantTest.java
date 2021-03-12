@@ -44,8 +44,7 @@ public class ConstantTest {
   private RowMetaAndData rowMetaAndData = mock( RowMetaAndData.class );
   private Constant constantSpy;
 
-  @ClassRule
-  public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @BeforeClass
   public static void setUpBeforeClass() throws HopPluginException {

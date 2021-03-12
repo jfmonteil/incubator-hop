@@ -37,20 +37,17 @@ import static org.junit.Assert.assertEquals;
  * @author Andrey Khayrutdinov
  */
 public class WorkflowEntryDosToUnix_ConversionIdempotency_Test {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
-
-  @BeforeClass
-  public static void init() throws Exception {
-    HopEnvironment.init();
-  }
-
+  private RestoreHopEngineEnvironment env;
 
   private File tmpFile;
+
   private String tmpFilePath;
   private ActionDosToUnix entry;
-
   @Before
+
   public void setUp() throws Exception {
+    env = new RestoreHopEngineEnvironment();
+
     tmpFile = File.createTempFile( "pdi-14161-", null );
     tmpFilePath = tmpFile.toURI().toString();
     entry = new ActionDosToUnix();

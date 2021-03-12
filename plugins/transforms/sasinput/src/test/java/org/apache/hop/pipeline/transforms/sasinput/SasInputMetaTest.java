@@ -39,7 +39,7 @@ import java.util.UUID;
 public class SasInputMetaTest {
   LoadSaveTester loadSaveTester;
   Class<SasInputMeta> testMetaClass = SasInputMeta.class;
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Before
   public void setUpLoadSave() throws Exception {

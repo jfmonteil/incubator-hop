@@ -28,7 +28,7 @@ import org.junit.ClassRule;
 import org.junit.Test;
 
 public class CoalesceTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   @BeforeClass
   public static void setUpBeforeClass() throws HopException {

@@ -24,7 +24,7 @@ import org.junit.Test;
 
 @Ignore( "Ignored, not running with ant build. Investigate." )
 public class CubeInputContentParsingTest extends BaseCubeInputParsingTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Test
   public void test() throws Exception {

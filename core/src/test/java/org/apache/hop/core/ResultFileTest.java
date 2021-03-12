@@ -39,11 +39,11 @@ import static org.junit.Assert.assertTrue;
 
 public class ResultFileTest {
 
-  @ClassRule public static RestoreHopEnvironment env = new RestoreHopEnvironment();
+  private RestoreHopEnvironment env;
 
   @Before
   public void before() throws Exception {
-    HopClientEnvironment.init();
+    env = new RestoreHopEnvironment();
   }
 
   @Test

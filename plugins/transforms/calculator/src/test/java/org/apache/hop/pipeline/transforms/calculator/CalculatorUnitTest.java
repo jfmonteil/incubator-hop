@@ -71,7 +71,7 @@ public class CalculatorUnitTest {
   private static final Class<?> PKG = CalculatorUnitTest.class; // For Translator
   private TransformMockHelper<CalculatorMeta, CalculatorData> smh;
 
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @BeforeClass
   public static void init() throws HopException {

@@ -32,7 +32,7 @@ import org.junit.ClassRule;
 import org.junit.Test;
 
 public class RandomValueMetaTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Test
   public void testTransformMeta() throws HopException {

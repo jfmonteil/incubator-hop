@@ -18,13 +18,19 @@ package org.apache.hop.workflow.actions.deletefiles;
 
 import org.apache.hop.workflow.action.loadsave.WorkflowActionLoadSaveTestSupport;
 import org.apache.hop.junit.rules.RestoreHopEngineEnvironment;
+import org.junit.Before;
 import org.junit.ClassRule;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class WorkflowActionDeleteFilesLoadSaveTest extends WorkflowActionLoadSaveTestSupport<ActionDeleteFiles> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  private RestoreHopEngineEnvironment env;
+
+  @Before
+  public void setUp() throws Exception {
+    env = new RestoreHopEngineEnvironment();
+  }
 
   @Override protected Class<ActionDeleteFiles> getActionClass() {
     return ActionDeleteFiles.class;

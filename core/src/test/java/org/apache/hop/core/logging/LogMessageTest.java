@@ -22,6 +22,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Locale;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -38,6 +40,7 @@ public class LogMessageTest {
 
   @Before
   public void setUp() {
+    Locale.setDefault(Locale.US);
     treeLogChannelId = LoggingRegistry.getInstance().registerLoggingSource( getTreeLoggingObject() );
   }
 
@@ -52,10 +55,10 @@ public class LogMessageTest {
     turnOnLogMarkMapping();
 
     logMessage = new LogMessage( LOG_MESSAGE, treeLogChannelId, LOG_LEVEL );
-    assertTrue( LOG_MESSAGE.equals( logMessage.getMessage() ) );
-    assertTrue( LOG_LEVEL.equals( logMessage.getLevel() ) );
-    assertTrue( treeLogChannelId.equals( logMessage.getLogChannelId() ) );
-    assertTrue( "[PIPELINE_SUBJECT].[TRANSFORM_SUBJECT].PIPELINE_CHILD_SUBJECT".equals( logMessage.getSubject() ) );
+    assertEquals( LOG_MESSAGE, logMessage.getMessage() );
+    assertEquals( LOG_LEVEL, logMessage.getLevel() );
+    assertEquals( treeLogChannelId, logMessage.getLogChannelId() );
+    assertEquals( "[PIPELINE_SUBJECT].[TRANSFORM_SUBJECT].PIPELINE_CHILD_SUBJECT", logMessage.getSubject() );
   }
 
   @Test
@@ -63,10 +66,10 @@ public class LogMessageTest {
     turnOffLogMarkMapping();
 
     logMessage = new LogMessage( LOG_MESSAGE, treeLogChannelId, LOG_LEVEL );
-    assertTrue( LOG_MESSAGE.equals( logMessage.getMessage() ) );
-    assertTrue( LOG_LEVEL.equals( logMessage.getLevel() ) );
-    assertTrue( treeLogChannelId.equals( logMessage.getLogChannelId() ) );
-    assertTrue( "PIPELINE_CHILD_SUBJECT".equals( logMessage.getSubject() ) );
+    assertEquals( LOG_MESSAGE, logMessage.getMessage() );
+    assertEquals( LOG_LEVEL, logMessage.getLevel() );
+    assertEquals( treeLogChannelId, logMessage.getLogChannelId() );
+    assertEquals( "PIPELINE_CHILD_SUBJECT", logMessage.getSubject() );
   }
 
   @Test
@@ -76,10 +79,10 @@ public class LogMessageTest {
     simpleLogChannelId = LoggingRegistry.getInstance().registerLoggingSource( getLoggingObjectWithOneParent() );
 
     logMessage = new LogMessage( LOG_MESSAGE, simpleLogChannelId, LOG_LEVEL );
-    assertTrue( LOG_MESSAGE.equals( logMessage.getMessage() ) );
-    assertTrue( LOG_LEVEL.equals( logMessage.getLevel() ) );
-    assertTrue( simpleLogChannelId.equals( logMessage.getLogChannelId() ) );
-    assertTrue( "PIPELINE_SUBJECT".equals( logMessage.getSubject() ) );
+    assertEquals( LOG_MESSAGE, logMessage.getMessage() );
+    assertEquals( LOG_LEVEL, logMessage.getLevel() );
+    assertEquals( simpleLogChannelId, logMessage.getLogChannelId() );
+    assertEquals( "PIPELINE_SUBJECT", logMessage.getSubject() );
 
     LoggingRegistry.getInstance().removeIncludingChildren( simpleLogChannelId );
   }

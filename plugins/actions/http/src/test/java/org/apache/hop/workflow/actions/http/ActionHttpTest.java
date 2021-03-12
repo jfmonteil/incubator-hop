@@ -23,17 +23,24 @@ import org.apache.hop.core.exception.HopException;
 import org.apache.hop.core.plugins.PluginRegistry;
 import org.apache.hop.core.util.EnvUtil;
 import org.apache.hop.junit.rules.RestoreHopEngineEnvironment;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.ClassRule;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
  * @author Tatsiana_Kasiankova
  */
 public class ActionHttpTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  private RestoreHopEngineEnvironment env;
+
+  @Before
+  public void setUp() throws Exception {
+    env = new RestoreHopEngineEnvironment();
+  }
 
   private ActionHttp jobEntryHttp = new ActionHttp();
 
@@ -50,8 +57,8 @@ public class ActionHttpTest {
   @Test
   public void testDeprecatedTargetFilenameExtension() {
     jobEntryHttp.setTargetFilenameExtention( "txt" );
-    assertTrue( "txt".equals( jobEntryHttp.getTargetFilenameExtension() ) );
+    assertEquals( "txt", jobEntryHttp.getTargetFilenameExtension() );
     jobEntryHttp.setTargetFilenameExtension( "zip" );
-    assertTrue( "zip".equals( jobEntryHttp.getTargetFilenameExtention() ) );
+    assertEquals( "zip", jobEntryHttp.getTargetFilenameExtention() );
   }
 }

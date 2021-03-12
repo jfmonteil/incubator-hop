@@ -46,15 +46,15 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.*;
 
 public class GreenplumValueMetaBaseTest {
-  @ClassRule public static RestoreHopEnvironment env = new RestoreHopEnvironment();
+  private RestoreHopEnvironment env;
 
   private static final String TEST_NAME = "TEST_NAME";
+
   private static final String LOG_FIELD = "LOG_FIELD";
   public static final int MAX_TEXT_FIELD_LEN = 5;
-
   // Get PKG from class under test
-  private Class<?> PKG = ValueMetaBase.PKG;
 
+  private Class<?> PKG = ValueMetaBase.PKG;
   private class StoreLoggingEventListener implements IHopLoggingEventListener {
 
     private List<HopLoggingEvent> events = new ArrayList<>();
@@ -67,29 +67,28 @@ public class GreenplumValueMetaBaseTest {
     public List<HopLoggingEvent> getEvents() {
       return events;
     }
-  }
 
+  }
   private StoreLoggingEventListener listener;
 
   @Spy
   private DatabaseMeta databaseMetaSpy = spy( new DatabaseMeta() );
+
   private PreparedStatement preparedStatementMock = mock( PreparedStatement.class );
   private ResultSet resultSet;
   private DatabaseMeta dbMeta;
   private ValueMetaBase valueMetaBase;
   private IVariables variables;
 
-  @BeforeClass
-  public static void setUpBeforeClass() throws HopException {
+  @Before
+  public void before() throws Exception {
+    env = new RestoreHopEnvironment();
     PluginRegistry.addPluginType( ValueMetaPluginType.getInstance() );
     PluginRegistry.addPluginType( DatabasePluginType.getInstance() );
     PluginRegistry.init();
     HopLogStore.init();
     DatabasePluginType.getInstance().registerClassPathPlugin( GreenplumDatabaseMeta.class );
-  }
 
-  @Before
-  public void setUp() {
     listener = new StoreLoggingEventListener();
     HopLogStore.getAppender().addLoggingEventListener( listener );
 

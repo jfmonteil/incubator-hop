@@ -37,7 +37,7 @@ import java.util.Map;
 import static org.junit.Assert.assertEquals;
 
 public class NullIfMetaTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   LoadSaveTester loadSaveTester;
 

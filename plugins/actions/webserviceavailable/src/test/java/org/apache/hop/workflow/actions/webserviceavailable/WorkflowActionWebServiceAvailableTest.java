@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 
 public class WorkflowActionWebServiceAvailableTest extends WorkflowActionLoadSaveTestSupport<ActionWebServiceAvailable> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @Override
   protected Class<ActionWebServiceAvailable> getActionClass() {

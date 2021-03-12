@@ -28,8 +28,7 @@ import static org.junit.Assert.assertEquals;
 
 
 public class MsSqlServerNativeDatabaseMetaTest {
-  @ClassRule
-  public static RestoreHopEnvironment env = new RestoreHopEnvironment();
+
 
   @Test
   public void testMsSqlOverrides() throws Exception {

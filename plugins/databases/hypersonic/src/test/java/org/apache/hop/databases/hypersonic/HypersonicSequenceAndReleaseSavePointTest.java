@@ -26,8 +26,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class HypersonicSequenceAndReleaseSavePointTest {
-  @ClassRule
-  public static RestoreHopEnvironment env = new RestoreHopEnvironment();
+
 
   final String sequenceName = "sequence_name";
 

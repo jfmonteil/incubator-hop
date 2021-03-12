@@ -32,6 +32,7 @@ import org.apache.hop.workflow.Workflow;
 import org.apache.hop.junit.rules.RestoreHopEngineEnvironment;
 import org.apache.hop.workflow.engines.local.LocalWorkflowEngine;
 import org.junit.AfterClass;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.ClassRule;
 import org.junit.Test;
@@ -48,17 +49,16 @@ import java.util.UUID;
 import static org.junit.Assert.assertTrue;
 
 public class ActionHttp_PDI208_Test {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
 
   public static final String HTTP_HOST = "localhost";
+
   public static final int HTTP_PORT = 9998;
   public static final String HTTP_SERVER_BASEURL = "http://localhost:9998";
-
   private static HttpServer httpServer;
 
   @BeforeClass
-  public static void setupBeforeClass() throws HopException, IOException {
-    HopClientEnvironment.init();
+  public static void setupBeforeClass() throws Exception {
+    new RestoreHopEngineEnvironment();
     ActionHttp_PDI208_Test.startHttpServer();
   }
 

@@ -21,7 +21,6 @@ import org.apache.hop.core.logging.HopLoggingEvent;
 import org.apache.hop.core.logging.LogLevel;
 import org.apache.hop.core.logging.LogMessage;
 import org.apache.hop.core.logging.LoggingBuffer;
-import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,48 +30,50 @@ public class LoggingBufferConcurrencyTest {
 
   private LoggingBuffer buffer;
 
-  @Test
   public void shouldNotFailProcessingEventsUnderHighContention() throws Exception {
     int modifiersAmount = 100;
     int readersAmount = 100;
 
-    buffer = new LoggingBuffer( 5000 );
+    buffer = new LoggingBuffer(5000);
 
-    AtomicBoolean condition = new AtomicBoolean( true );
+    AtomicBoolean condition = new AtomicBoolean(true);
 
     List<StopOnErrorCallable<?>> modifiers = new ArrayList<>();
-    for ( int i = 0; i < modifiersAmount; i++ ) {
-      modifiers.add( new Appender( condition ) );
+    for (int i = 0; i < modifiersAmount; i++) {
+      modifiers.add(new Appender(condition));
     }
     List<StopOnErrorCallable<?>> readers = new ArrayList<>();
-    for ( int i = 0; i < readersAmount; i++ ) {
-      readers.add( new Reader( condition ) );
+    for (int i = 0; i < readersAmount; i++) {
+      readers.add(new Reader(condition));
     }
 
     ConcurrencyTestRunner<?, ?> runner =
-      new ConcurrencyTestRunner<>( modifiers, readers, condition, 5000 );
+        new ConcurrencyTestRunner<>(modifiers, readers, condition, 5000);
     runner.runConcurrentTest();
     runner.checkNoExceptionRaised();
   }
 
   private class Appender extends StopOnErrorCallable<Void> {
-    Appender( AtomicBoolean condition ) {
-      super( condition );
+    Appender(AtomicBoolean condition) {
+      super(condition);
     }
 
     @Override
     Void doCall() {
-      for ( int i = 0; i < 5000; i++ ) {
-        buffer.addLogggingEvent( new HopLoggingEvent(
-          new LogMessage( "subject", LogLevel.DEBUG ), System.currentTimeMillis(), LogLevel.DEBUG ) );
+      for (int i = 0; i < 5000; i++) {
+        buffer.addLogggingEvent(
+            new HopLoggingEvent(
+                new LogMessage("subject", LogLevel.DEBUG),
+                System.currentTimeMillis(),
+                LogLevel.DEBUG));
       }
       return null;
     }
   }
 
   private class Reader extends StopOnErrorCallable<StringBuffer> {
-    Reader( AtomicBoolean condition ) {
-      super( condition );
+    Reader(AtomicBoolean condition) {
+      super(condition);
     }
 
     @Override

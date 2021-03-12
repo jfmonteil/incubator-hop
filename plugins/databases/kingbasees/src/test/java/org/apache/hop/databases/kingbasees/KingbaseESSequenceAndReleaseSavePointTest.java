@@ -27,8 +27,7 @@ import static org.junit.Assert.*;
 
 
 public class KingbaseESSequenceAndReleaseSavePointTest {
-  @ClassRule
-  public static RestoreHopEnvironment env = new RestoreHopEnvironment();
+
 
   final String sequenceName = "sequence_name";
 

@@ -32,7 +32,7 @@ import static org.junit.Assert.assertEquals;
 
 public class ScriptValuesMetaModInjectionTest extends BaseMetadataInjectionTest<ScriptValuesMetaMod> {
 
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   @Before
   public void setup() throws Exception {

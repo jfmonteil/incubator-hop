@@ -42,14 +42,14 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 public class BaseDatabaseMetaTest {
-  @ClassRule public static RestoreHopEnvironment env = new RestoreHopEnvironment();
-  BaseDatabaseMeta nativeMeta;
+  private RestoreHopEnvironment env;
+  private BaseDatabaseMeta nativeMeta;
 
   @Before
   public void setupOnce() throws Exception {
+    env = new RestoreHopEnvironment();
     nativeMeta = new ConcreteBaseDatabaseMeta();
     nativeMeta.setAccessType( DatabaseMeta.TYPE_ACCESS_NATIVE );
-    HopClientEnvironment.init();
   }
 
   @Test

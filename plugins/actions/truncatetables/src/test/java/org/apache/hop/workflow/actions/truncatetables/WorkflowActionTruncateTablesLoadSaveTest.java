@@ -31,7 +31,7 @@ import java.util.Map;
 import java.util.Random;
 
 public class WorkflowActionTruncateTablesLoadSaveTest extends WorkflowActionLoadSaveTestSupport<ActionTruncateTables> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
 
   @Override
   protected Class<ActionTruncateTables> getActionClass() {

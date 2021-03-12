@@ -40,7 +40,7 @@ import java.util.UUID;
 import static org.junit.Assert.assertEquals;
 
 public class TextFileOutputMetaTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   @BeforeClass
   public static void setUpBeforeClass() throws HopException {

@@ -56,10 +56,16 @@ public class RestoreHopEnvironment extends ExternalResource {
    * Creates a {@code RestoreHopEnvironment} rule that restores all system properties and resets any Hop related
    * environment instances.
    */
-  public RestoreHopEnvironment() {
+  public RestoreHopEnvironment() throws Exception {
+    defaultInit();
   }
 
-  void defaultInit() throws Throwable {
+  void defaultInit() throws Exception {
+    // Force this for JAVA 11
+    //
+    Locale.setDefault(Locale.US);
+    TimeZone.setDefault( TimeZone.getTimeZone( "UTC" ) );
+
     // make sure static class initializers are correctly initialized
     // re-init
     cleanUp();

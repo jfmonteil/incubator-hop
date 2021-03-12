@@ -19,6 +19,7 @@ package org.apache.hop.workflow.actions.folderisempty;
 
 import org.apache.hop.workflow.action.loadsave.WorkflowActionLoadSaveTestSupport;
 import org.apache.hop.junit.rules.RestoreHopEngineEnvironment;
+import org.junit.Before;
 import org.junit.ClassRule;
 
 import java.util.Arrays;
@@ -26,7 +27,12 @@ import java.util.List;
 import java.util.Map;
 
 public class WorkflowActionFolderIsEmptyLoadSaveTest extends WorkflowActionLoadSaveTestSupport<ActionFolderIsEmpty> {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  private RestoreHopEngineEnvironment env;
+
+  @Before
+  public void setUp() throws Exception {
+    env = new RestoreHopEngineEnvironment();
+  }
 
   @Override
   protected Class<ActionFolderIsEmpty> getActionClass() {

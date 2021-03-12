@@ -18,6 +18,7 @@
 package org.apache.hop.core.metrics;
 
 import org.apache.hop.junit.rules.RestoreHopEnvironment;
+import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Test;
 
@@ -28,7 +29,12 @@ import static org.junit.Assert.assertEquals;
 
 public class MetricsDurationTest {
 
-  @ClassRule public static RestoreHopEnvironment env = new RestoreHopEnvironment();
+  private RestoreHopEnvironment env;
+
+  @Before
+  public void before() throws Exception {
+    env = new RestoreHopEnvironment();
+  }
 
   @Test
   @SuppressWarnings( "deprecation" )

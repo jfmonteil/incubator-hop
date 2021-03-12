@@ -56,7 +56,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 public class CheckSumTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   private static Object previousHopDefaultNumberFormat;
 

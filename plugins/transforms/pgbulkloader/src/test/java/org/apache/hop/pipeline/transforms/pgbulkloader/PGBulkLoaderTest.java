@@ -45,7 +45,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public class PGBulkLoaderTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+  
   private TransformMockHelper<PGBulkLoaderMeta, PGBulkLoaderData> transformMockHelper;
   private PGBulkLoader pgBulkLoader;
 

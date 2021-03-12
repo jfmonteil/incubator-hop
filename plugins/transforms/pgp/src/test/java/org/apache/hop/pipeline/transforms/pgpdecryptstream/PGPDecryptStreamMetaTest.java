@@ -32,7 +32,7 @@ import java.util.List;
 import java.util.Map;
 
 public class PGPDecryptStreamMetaTest {
-  @ClassRule public static RestoreHopEngineEnvironment env = new RestoreHopEngineEnvironment();
+
 
   LoadSaveTester loadSaveTester;
   Class<PGPDecryptStreamMeta> testMetaClass = PGPDecryptStreamMeta.class;
