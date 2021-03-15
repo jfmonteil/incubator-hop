@@ -752,13 +752,13 @@ public class GoogleSheetsPluginInputDialog extends BaseTransformDialog implement
                  //Fill in sample in order to guess types ___ GoogleSheetsPluginInputFields( String fieldname, int position, int length )
 				 GoogleSheetsPluginInputFields sampleInputFields = new GoogleSheetsPluginInputFields();
 				 String columnsLetter=getColumnName(j+1);
- 			     logBasic("column:"+Integer.toString(j)+")"+columnsLetter);
+ 			     logDetailed("column:"+Integer.toString(j)+")"+columnsLetter);
                  Integer nbSampleFields=Integer.parseInt(variables.resolve(sampleFields.getText()));
 			
 					
 
 				 String sampleRange=variables.resolve(meta.getWorksheetId())+"!"+columnsLetter+"2:"+columnsLetter+variables.resolve(sampleFields.getText());
-			     logBasic("Guess Fieds : Range : "+sampleRange);
+			     logDetailed("Guess Fieds : Range : "+sampleRange);
 				 ValueRange sampleResult = service.spreadsheets().values().get(variables.resolve(meta.getSpreadsheetKey()), sampleRange).execute();
                  List<List<Object>> sampleValues = sampleResult.getValues();
 				 if(sampleValues!=null)
@@ -771,7 +771,7 @@ public class GoogleSheetsPluginInputDialog extends BaseTransformDialog implement
 						 if(sampleRow!=null && sampleRow.size()>0 && sampleRow.get(0)!=null && !sampleRow.get(0).toString().isEmpty())
 						 {
 							 String tmp=sampleRow.get(0).toString();
-							 logBasic(Integer.toString(m)+")"+tmp.toString());
+							 logDetailed(Integer.toString(m)+")"+tmp.toString());
 							 tmpSampleColumnValues[m]=tmp;
 							 m++;
 						 }

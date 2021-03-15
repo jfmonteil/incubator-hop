@@ -41,6 +41,7 @@ import org.apache.hop.metadata.api.IHopMetadataProvider;
 
 import org.apache.hop.pipeline.transform.ITransformMeta;
 import org.apache.hop.pipeline.transform.TransformMeta;
+import org.apache.hop.pipeline.transform.ITransformDialog;
 import org.w3c.dom.Node;
 
 import java.util.List;
@@ -48,6 +49,7 @@ import org.apache.hop.core.injection.Injection;
 import org.apache.hop.core.injection.InjectionDeep;
 import org.apache.hop.core.injection.InjectionSupported;
 
+import org.eclipse.swt.widgets.Shell;
 
 /**
  * Skeleton for PDI Step plugin.
@@ -236,74 +238,6 @@ public class GoogleSheetsPluginInputMeta extends BaseTransformMeta implements IT
         }
     }
 
-  /*  @Override
-    public void readRep(Repository rep, IMetaStore metaStore, ObjectId id_step, List<DatabaseMeta> databases) throws HopException {
-        try {
-
-            this.worksheetId = rep.getStepAttributeString(id_step, "worksheetId");
-            this.spreadsheetKey = rep.getStepAttributeString(id_step, "spreadsheetKey");
-            this.jsonCredentialPath = rep.getStepAttributeString(id_step, "jsonCredentialPath");
-			this.sampleFields =(int) rep.getStepAttributeInteger(id_step, "sampleFields");
-            int nrfields = rep.countNrStepAttributes(id_step, "field_name");
-
-            allocate(nrfields);
-
-            for ( int i = 0; i < nrfields; i++ ) {
-				GoogleSheetsPluginInputFields field = new GoogleSheetsPluginInputFields();
-
-				field.setName( rep.getStepAttributeString( id_step, i, "field_name" ) );
-				field.setType( ValueMetaFactory.getIdForValueMeta( rep.getStepAttributeString( id_step, i, "field_type" ) ) );
-				field.setFormat( rep.getStepAttributeString( id_step, i, "field_format" ) );
-				field.setCurrencySymbol( rep.getStepAttributeString( id_step, i, "field_currency" ) );
-				field.setDecimalSymbol( rep.getStepAttributeString( id_step, i, "field_decimal" ) );
-				field.setGroupSymbol( rep.getStepAttributeString( id_step, i, "field_group" ) );
-				//field.setNullString( rep.getStepAttributeString( id_step, i, "field_nullif" ) );
-				//field.setIfNullValue( rep.getStepAttributeString( id_step, i, "field_ifnull" ) );
-				field.setPosition( (int) rep.getStepAttributeInteger( id_step, i, "field_position" ) );
-				field.setLength( (int) rep.getStepAttributeInteger( id_step, i, "field_length" ) );
-				field.setPrecision( (int) rep.getStepAttributeInteger( id_step, i, "field_precision" ) );
-				field.setTrimType( ValueMetaString.getTrimTypeByCode( rep.getStepAttributeString( id_step, i, "field_trim_type" ) ) );
-				//field.setRepeated( rep.getStepAttributeBoolean( id_step, i, "field_repeat" ) );
-
-				inputFields[i] = field;
-			  }
-        } catch (Exception e) {
-            throw new HopException("Unexpected error reading step information from the repository", e);
-        }
-    }
-
-    @Override
-    public void saveRep(Repository rep, IMetaStore metaStore, ObjectId id_transformation, ObjectId id_step) throws HopException {
-        try {
-            rep.saveStepAttribute(id_transformation, id_step, "spreadsheetKey", this.spreadsheetKey);
-            rep.saveStepAttribute(id_transformation, id_step, "worksheetId", this.worksheetId);
-            rep.saveStepAttribute(id_transformation, id_step, "jsonCredentialPath", this.jsonCredentialPath);
-            rep.saveStepAttribute(id_transformation, id_step, "sampleFields", this.sampleFields.toString());
-
-		    int nrfields = rep.countNrStepAttributes(id_step, "field_name");
-           
-		for ( int i = 0; i < inputFields.length; i++ ) {
-			GoogleSheetsPluginInputFields field = inputFields[i];
-
-			rep.saveStepAttribute( id_transformation, id_step, i, "field_name", field.getName() );
-			rep.saveStepAttribute( id_transformation, id_step, i, "field_type", field.getTypeDesc() );
-			rep.saveStepAttribute( id_transformation, id_step, i, "field_format", field.getFormat() );
-			rep.saveStepAttribute( id_transformation, id_step, i, "field_currency", field.getCurrencySymbol() );
-			rep.saveStepAttribute( id_transformation, id_step, i, "field_decimal", field.getDecimalSymbol() );
-			rep.saveStepAttribute( id_transformation, id_step, i, "field_group", field.getGroupSymbol() );
-			//rep.saveStepAttribute( id_transformation, id_step, i, "field_nullif", field.getNullString() );
-			//rep.saveStepAttribute( id_transformation, id_step, i, "field_ifnull", field.getIfNullValue() );
-			rep.saveStepAttribute( id_transformation, id_step, i, "field_position", field.getPosition() );
-			rep.saveStepAttribute( id_transformation, id_step, i, "field_length", field.getLength() );
-			rep.saveStepAttribute( id_transformation, id_step, i, "field_precision", field.getPrecision() );
-			rep.saveStepAttribute( id_transformation, id_step, i, "field_trim_type", field.getTrimTypeCode() );
-			//rep.saveStepAttribute( id_transformation, id_step, i, "field_repeat", field.isRepeated() );
-		  }
-        } catch (Exception e) {
-            throw new HopException("Unable to save step information to the repository for id_step=" + id_step, e);
-        }
-    }*/
-
     @Override
     public void getFields(IRowMeta rowMeta, String name, IRowMeta[] info, TransformMeta nextTransform, IVariables variables, IHopMetadataProvider metadataProvider) throws HopTransformException {
         try {
@@ -364,18 +298,13 @@ public class GoogleSheetsPluginInputMeta extends BaseTransformMeta implements IT
     return new GoogleSheetsPluginInputData();
   }
   
-   @Override public String getDialogClassName() {
+  @Override public String getDialogClassName() {
     return GoogleSheetsPluginInputDialog.class.getName();
   }
-  /*public Neo4Jtput createTransform( TransformMeta transformMeta, Neo4JOutputData iTransformData, int cnr, PipelineMeta pipelineMeta, Pipeline disp ) {
-    return new Neo4JOutput( transformMeta, this, iTransformData, cnr, pipelineMeta, disp );
-  }
 
-  public Neo4JOutputData getTransformData() {
-    return new Neo4JOutputData();
-  }*/
- 
-  
+  public ITransformDialog getDialog( Shell shell, IVariables variables, ITransformMeta meta, PipelineMeta pipelineMeta, String name ) {
+        return new GoogleSheetsPluginInputDialog( shell, variables, meta, pipelineMeta, name );
+    }
   
 }
 

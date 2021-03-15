@@ -39,8 +39,10 @@ import org.apache.hop.pipeline.transform.BaseTransformMeta;
 
 import org.apache.hop.metadata.api.IHopMetadataProvider;
 
+import org.apache.hop.pipeline.transform.ITransformDialog;
 import org.apache.hop.pipeline.transform.ITransformMeta;
 import org.apache.hop.pipeline.transform.TransformMeta;
+import org.eclipse.swt.widgets.Shell;
 import org.w3c.dom.Node;
 
 import java.util.List;
@@ -278,13 +280,10 @@ public class GoogleSheetsPluginOutputMeta extends BaseTransformMeta implements I
    @Override public String getDialogClassName() {
     return GoogleSheetsPluginOutputDialog.class.getName();
   }
-  /*public Neo4Jtput createTransform( TransformMeta transformMeta, Neo4JOutputData iTransformData, int cnr, PipelineMeta pipelineMeta, Pipeline disp ) {
-    return new Neo4JOutput( transformMeta, this, iTransformData, cnr, pipelineMeta, disp );
-  }
 
-  public Neo4JOutputData getTransformData() {
-    return new Neo4JOutputData();
-  }*/
+    public ITransformDialog getDialog(Shell shell, IVariables variables, ITransformMeta meta, PipelineMeta pipelineMeta, String name ) {
+        return new GoogleSheetsPluginInputDialog( shell, variables, meta, pipelineMeta, name );
+    }
  
   
   
